@@ -1,0 +1,34 @@
+---
+
+- name: Install fish
+  pacman:
+    name:
+      - fish
+      - wl-clipboard
+    state: present
+  become: yes
+
+- name: Create $HOME/.config/fish/conf.d, $HOME/.config/fish/functions directory if it does not exist
+  file:
+    path: "{{ ansible_user_dir }}/.config/fish/{{ item }}"
+    state: directory
+  with_items:
+    - conf.d
+    - functions
+
+- name: Copy config.fish
+  copy:
+    src: fish/config.fish
+    dest: "{{ ansible_user_dir }}/.config/fish/"
+
+- name: Copy fish_user_key_bindings.fish
+  copy:
+    src: fish/fish_user_key_bindings.fish
+    dest: "{{ ansible_user_dir }}/.config/fish/functions"
+    force: no
+
+- name: Set fish as login shell
+  user:
+    name: "{{ ansible_user_id }}"
+    shell: /usr/bin/fish
+  become: yes

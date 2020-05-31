@@ -1,0 +1,7 @@
+---
+
+- name: Install jellyfin
+  pacman:
+    name: jellyfin
+    state: present
+  become: yes

@@ -1,0 +1,22 @@
+---
+
+- name: Install sudo
+  pacman:
+    name: sudo
+    state: present
+  become: yes
+
+- name: Allow members of group wheel to execute any command without a password
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: '^%wheel'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: '/usr/sbin/visudo -cf %s'
+  become: yes
+
+- name: Config fish for sudo
+  copy:
+    src: fish/sudo.fish
+    dest: "{{ ansible_user_dir }}/.config/fish/conf.d/"
+  tags: fish

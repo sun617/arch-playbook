@@ -1,0 +1,14 @@
+---
+
+- name: Install cups
+  pacman:
+    name: cups
+    state: present
+  become: yes
+
+# - name: Add lpadmin group to user
+#   user:
+#     name: "{{ ansible_user_id }}"
+#     groups: lpadmin
+#     append: yes
+#   become: yes

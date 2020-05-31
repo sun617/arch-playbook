@@ -1,0 +1,34 @@
+---
+
+- name: Install docker
+  pacman:
+    name: docker
+    state: present
+  become: yes
+
+- name: Enable and start docker
+  systemd:
+    name: docker
+    enabled: yes
+    state: started
+  become: yes
+
+- name: Add docker group to user
+  user:
+    name: "{{ ansible_user_id }}"
+    groups: docker
+    append: yes
+  become: yes
+
+- name: Install docker-compose
+  pip:
+    name: docker-compose
+    executable: "{{ ansible_user_dir }}/.local/bin/pip"
+    extra_args: --user
+    state: latest
+
+- name: Config fish for docker
+  copy:
+    src: fish/docker.fish
+    dest: "{{ ansible_user_dir }}/.config/fish/conf.d/"
+  tags: fish

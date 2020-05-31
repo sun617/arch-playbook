@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# fcitx5
+# export CLUTTER_IM_MODULE=xim
+export GTK_IM_MODULE=fcitx5
+export QT_IM_MODULE=fcitx5
+# export XMODIFIERS=@im=fcitx5
+
+# firefox
+export MOZ_ENABLE_WAYLAND=1
+
+# vaapi
+# export LIBVA_DRIVER_NAME=iHD
+
+# alacritty
+export WINIT_UNIX_BACKEND=x11
+
+# qt5
+# export QT_QPA_PLATFORMTHEME=qt5ct
+
+exec sway

@@ -1,0 +1,12 @@
+---
+
+- name: Install noto-fonts, noto-fonts-cjk, noto-fonts-emoji, powerline-fonts, ttf-font-awesome
+  pacman:
+    name:
+      - noto-fonts
+      - noto-fonts-cjk
+      - noto-fonts-emoji
+      - powerline-fonts
+      - ttf-font-awesome
+    state: present
+  become: yes

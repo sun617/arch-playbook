@@ -1,0 +1,49 @@
+---
+
+- import_tasks: alacritty.yml
+  tags: alacritty
+- import_tasks: i3status-rust.yml
+  tags: i3status-rust
+
+- name: Install sway, swayidle, swaylock, light, mako, udiskie, wl-clipboard, wofi, xorg-server-xwayland
+  pacman:
+    name:
+      - sway
+      - swayidle
+      - swaylock
+      - light
+      - mako
+      # - qt5ct
+      - udiskie
+      - wl-clipboard
+      - wofi
+      - xorg-server-xwayland
+    state: present
+  become: yes
+
+- name: Create $HOME/.config/sway directory if it does not exist
+  file:
+    path: "{{ ansible_user_dir }}/.config/sway"
+    state: directory
+
+- name: Copy sway config
+  copy:
+    src: sway.config
+    dest: "{{ ansible_user_dir }}/.config/sway/config"
+
+- name: Start sway
+  copy:
+    src: start-sway
+    dest: "{{ ansible_user_dir }}/.local/bin/"
+    mode: 0755
+
+  # Enable suspend when connected with external monitor
+- name: Ensure "HandleLidSwitchDocked=suspend" in section "[Login]" in specified file
+  ini_file:
+    path: /etc/systemd/logind.conf
+    section: Login
+    option: HandleLidSwitchDocked
+    value: suspend
+    no_extra_spaces: yes
+    backup: yes
+  become: yes

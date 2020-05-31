@@ -1,0 +1,6 @@
+---
+
+- name: Install zoom
+  flatpak:
+    name: us.zoom.Zoom
+    state: present

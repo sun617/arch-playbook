@@ -1,0 +1,14 @@
+---
+
+- name: Install transmission-cli
+  pacman:
+    name:
+      - transmission-cli
+      # https://superuser.com/questions/1265412/automounting-usb-drives-on-a-headless-systemd-linux-box
+      # https://github.com/rbrito/usbmount/issues/25#issuecomment-550534754
+      # - usbmount
+    state: present
+  become: yes
+
+# - import_tasks: jellyfin.yml
+#   tags: jellyfin

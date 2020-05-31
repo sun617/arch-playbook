@@ -1,0 +1,9 @@
+---
+
+- name: Install modemmanager, networkmanager
+  pacman:
+    name:
+      - modemmanager
+      - networkmanager
+    state: present
+  become: yes

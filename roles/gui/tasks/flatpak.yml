@@ -1,0 +1,9 @@
+---
+
+- name: Install flatpak, xdg-desktop-portal-gtk
+  pacman:
+    name:
+      - flatpak
+      - xdg-desktop-portal-gtk
+    state: present
+  become: yes

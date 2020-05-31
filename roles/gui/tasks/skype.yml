@@ -1,0 +1,6 @@
+---
+
+- name: Install skype
+  flatpak:
+    name: com.skype.Client
+    state: present

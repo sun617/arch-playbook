@@ -1,0 +1,13 @@
+---
+
+- name: Install firefox
+  flatpak:
+    name: org.mozilla.firefox
+    state: present
+
+# https://github.com/flatpak/flatpak/issues/2861
+- name: Install gnome-settings-daemon
+  pacman:
+    name: gnome-settings-daemon
+    state: present
+  become: yes
