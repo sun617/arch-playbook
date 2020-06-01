@@ -3,7 +3,7 @@
 - name: Install google-cloud-sdk, kubectl
   pacman:
     name:
-      - google-cloud-sdk-294.0.0-1-x86_64.pkg.tar.xz
+      - "{{ role_path }}/files/google-cloud-sdk-294.0.0-1-x86_64.pkg.tar.xz"
       - kubectl
     state: present
   become: yes

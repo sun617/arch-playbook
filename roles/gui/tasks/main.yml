@@ -16,8 +16,8 @@
   tags: firefox
 - import_tasks: fonts.yml
   tags: fonts
-# - import_tasks: insomnia.yml
-#   tags: insomnia
+- import_tasks: insomnia.yml
+  tags: insomnia
 - import_tasks: multimedia.yml
   tags: multimedia
 - import_tasks: network.yml

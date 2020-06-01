@@ -2,7 +2,7 @@
 
 - name: Install i3status-rust
   pacman:
-    name: i3status-rust-0.13.1-2-any.pkg.tar.xz
+    name: "{{ role_path }}/files/i3status-rust-0.13.1-2-any.pkg.tar.xz"
     state: present
   become: yes
 

@@ -2,7 +2,7 @@
 
 - name: Install starship
   pacman:
-    name: starship-0.41.3-1-x86_65.pkg.tar.xz
+    name: "{{ role_path }}/files/starship-0.41.3-1-x86_64.pkg.tar.xz"
     state: present
   become: yes
 
