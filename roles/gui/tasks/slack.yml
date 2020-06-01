@@ -4,3 +4,4 @@
   flatpak:
     name: com.slack.Slack
     state: present
+  become: yes
