@@ -62,6 +62,11 @@ esac
 if [ ! -d ~/arch-playbook ]; then
     echo "Git clone arch-playbook repository"
     git clone https://github.com/choihongil/arch-playbook.git ~/arch-playbook
+
+    # remove ~/.gitconfig if created when `git lfs install`
+    if [ -f ~/.gitconfig ]; then
+        rm ~/.gitconfig
+    fi
 fi
 # execute playbook
 echo "Execute ansible playbook"

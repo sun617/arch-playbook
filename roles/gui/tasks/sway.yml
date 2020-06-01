@@ -17,6 +17,7 @@
       - udiskie
       - wl-clipboard
       - wofi
+      - xdg-user-dirs
       - xorg-server-xwayland
     state: present
   become: yes
