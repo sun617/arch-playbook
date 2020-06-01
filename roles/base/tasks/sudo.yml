@@ -6,11 +6,18 @@
     state: present
   become: yes
 
+- name: Add wheel group to user
+  user:
+    name: "{{ ansible_user_id }}"
+    groups: wheel
+    append: yes
+  become: yes
+
 - name: Allow members of group wheel to execute any command without a password
   lineinfile:
     path: /etc/sudoers
     state: present
-    regexp: '^%wheel'
+    regexp: '%wheel ALL=\(ALL\) NOPASSWD: ALL'
     line: '%wheel ALL=(ALL) NOPASSWD: ALL'
     validate: '/usr/sbin/visudo -cf %s'
   become: yes
