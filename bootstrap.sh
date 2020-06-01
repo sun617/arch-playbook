@@ -3,8 +3,8 @@ set -eu
 
 case $(uname) in
     Linux)
-        echo "Install git python"
-        su -lc 'pacman -S git python'
+        echo "Install git git-lfs python"
+        su -lc 'pacman -S --needed git git-lfs python'
         # pip
         if [ ! -x ~/.local/bin/pip ]; then
             echo "Install pip"
@@ -38,6 +38,9 @@ case $(uname) in
                     ;;
             esac
         done
+
+        # setup git-lfs
+        git lfs install
         ;;
     Darwin)
 	# brew
