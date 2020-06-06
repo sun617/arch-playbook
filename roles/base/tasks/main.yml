@@ -15,13 +15,15 @@
 - import_tasks: sudo.yml
   tags: sudo
 
-- name: Install base-devl, bat, curl, htop, nnn, pwgen, rsync, unarchiver
+- name: Install base-devl, bat, curl, gnu-netcat, htop, jq, nnn, pwgen, rsync, unarchiver
   pacman:
     name:
       - base-devel
       - bat
       - curl
+      - gnu-netcat
       - htop
+      - jq
       - man-db
       - man-pages
       - neovim
