@@ -49,10 +49,11 @@ let mapleader = "\<Space>"
 nnoremap j gj
 nnoremap k gk
 nnoremap <Leader>w :write<CR>
+nnoremap <Leader>W :write !sudo tee > /dev/null %<CR>
 nnoremap <Leader>/ :nohlsearch<CR>
 nnoremap <Leader>d :bdelete<CR>
 nnoremap <Leader>D :call delete(expand('%')) <Bar> :bdelete<CR>
-nnoremap <C-w>q :qall<CR>
+nnoremap <Leader>q :qall<CR>
 
 " tab
 "nmap <Leader>te :tabedit %<CR>
