@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+require 'json'
+
+IO.popen('swaymsg -t get_workspaces') do |io|
+  workspaces = JSON.parse(io.read)
+  current_ws = workspaces.find { |ws| ws['focused'] }
+
+  next_ws_number = nil
+  if current_ws['representation']
+    sorted_ws_numbers = workspaces.map { |ws| ws['num'] }.sort
+    sorted_ws_numbers.each_with_index do |number, index|
+      if number != index + 1
+        next_ws_number = index + 1 
+        break
+      end
+    end
+    next_ws_number ||= sorted_ws_numbers.size.next
+  else
+    next_ws_number = current_ws['num']
+  end
+
+  system("swaymsg workspace #{next_ws_number}")
+end

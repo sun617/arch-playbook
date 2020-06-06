@@ -11,9 +11,11 @@
       - sway
       - swayidle
       - swaylock
+      - grim
       - light
       - mako
       # - qt5ct
+      - slurp
       - udiskie
       - wl-clipboard
       - wofi
@@ -27,16 +29,17 @@
     path: "{{ ansible_user_dir }}/.config/sway"
     state: directory
 
+- name: Copy next-workspace, start-sway, switch-window
+  copy:
+    src: sway/
+    dest: /usr/local/bin/
+    mode: 0755
+  become: yes
+
 - name: Copy sway config
   copy:
     src: sway.config
     dest: "{{ ansible_user_dir }}/.config/sway/config"
-
-- name: Start sway
-  copy:
-    src: start-sway
-    dest: "{{ ansible_user_dir }}/.local/bin/"
-    mode: 0755
 
   # Enable suspend when connected with external monitor
 - name: Ensure "HandleLidSwitchDocked=suspend" in section "[Login]" in specified file
