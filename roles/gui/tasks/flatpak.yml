@@ -7,3 +7,9 @@
       - xdg-desktop-portal-gtk
     state: present
   become: yes
+
+- name: Config fish for flatpak
+  copy:
+    src: fish/flatpak.fish
+    dest: "{{ ansible_user_dir }}/.config/fish/conf.d/"
+  tags: fish
