@@ -1,5 +1,5 @@
 theme = "solarized-dark"
-icons = "awesome"
+icons = "awesome5"
 
 [[block]]
 block = "backlight"
@@ -10,12 +10,8 @@ block = "sound"
 step_width = 3
 
 [[block]]
-block = "net"
-device = "wlp2s0"
-ssid = true
-ip = true
-speed_up = false
-interval = 5
+block = "networkmanager"
+primary_only = true
 
 [[block]]
 block = "battery"
