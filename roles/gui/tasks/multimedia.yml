@@ -1,14 +1,19 @@
 ---
 
-- name: Install blueman, feh, mpv, pavucontrol, pulseaudio-bluetooth
+- name: Install blueman, feh, mpv, pulseaudio-bluetooth
   pacman:
     name:
       - blueman
       - feh
       - mpv
-      - pavucontrol
       # - pulseaudio-dlna
       - pulseaudio-bluetooth
+    state: present
+  become: yes
+
+- name: Install pavucontrol
+  flatpak:
+    name: org.pulseaudio.pavucontrol
     state: present
   become: yes
 
