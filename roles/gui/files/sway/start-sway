@@ -21,7 +21,4 @@ export WINIT_UNIX_BACKEND=x11
 # flatpak
 export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share"
 
-# grim
-export GRIM_DEFAULT_DIR="$HOME/Pictures/grim"
-
 exec sway
