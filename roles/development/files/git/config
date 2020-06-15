@@ -1,7 +1,7 @@
 [core]
         quotepath = false
 [user]
-	name = choihongil
+	name = Hongri Cui
 	email = choihongil@gmail.com
 [diff]
 	tool = vimdiff
@@ -14,3 +14,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[pull]
+        ff = only
