@@ -13,7 +13,7 @@ class SwayHelper
       next unless selected
 
       container = container_window_hash.key(selected)
-      system("swaymsg [con_id=#{container['id']}] focus")
+      system("swaymsg '[con_id=#{container['id']}] focus'")
     end
   end
 
@@ -29,7 +29,7 @@ class SwayHelper
         else
           app_containers.find { |container| container['visible'] } || app_containers.first
         end
-      system("swaymsg [con_id=#{target_container['id']}] focus")
+      system("swaymsg '[con_id=#{target_container['id']}] focus'")
     elsif name == 'Alacritty'
       system("swaymsg exec alacritty")
     end

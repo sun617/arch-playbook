@@ -39,9 +39,9 @@
     path: "{{ ansible_user_dir }}/.config/sway"
     state: directory
 
-- name: Copy start-sway, sway-helper
+- name: Copy sway-helper
   copy:
-    src: sway/
+    src: sway-helper
     dest: /usr/local/bin/
     mode: 0755
   become: yes
@@ -50,6 +50,12 @@
   copy:
     src: sway.config
     dest: "{{ ansible_user_dir }}/.config/sway/config"
+
+- name: Config fish for sway
+  copy:
+    src: fish/sway.fish
+    dest: "{{ ansible_user_dir }}/.config/fish/conf.d/"
+  tags: fish
 
   # Enable suspend when connected with external monitor
 - name: Ensure "HandleLidSwitchDocked=suspend" in section "[Login]" in specified file
