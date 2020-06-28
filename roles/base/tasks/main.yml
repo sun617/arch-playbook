@@ -6,6 +6,8 @@
   tags: avahi
 - import_tasks: exa.yml
   tags: exa
+- import_tasks: nnn.yml
+  tags: nnn
 - import_tasks: openssh.yml
   tags: openssh
 - import_tasks: python.yml
@@ -15,7 +17,7 @@
 - import_tasks: sudo.yml
   tags: sudo
 
-- name: Install base-devl, bat, curl, gnu-netcat, htop, jq, nnn, pwgen, rsync, unarchiver
+- name: Install base-devl, bat, curl, gnu-netcat, htop, jq, pwgen, rsync, unarchiver
   pacman:
     name:
       - base-devel
@@ -27,7 +29,6 @@
       - man-db
       - man-pages
       - neovim
-      - nnn
       - pwgen
       - rsync
       - unarchiver

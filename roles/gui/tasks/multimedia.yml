@@ -1,15 +1,23 @@
 ---
 
-- name: Install blueman, feh, mpv, pulseaudio-bluetooth
+- name: Install blueman, imv, mpv, pulseaudio-bluetooth
   pacman:
     name:
       - blueman
-      - feh
+      - imv
       - mpv
       # - pulseaudio-dlna
       - pulseaudio-bluetooth
     state: present
   become: yes
+
+- name: Create symbolic link imvr to imv
+  file:
+    src: /usr/bin/imv
+    dest: /usr/local/bin/imvr
+    state: link
+  become: yes
+  tags: nnn
 
 - name: Install pavucontrol
   flatpak:
