@@ -18,26 +18,27 @@ case $(uname) in
             ~/.local/bin/pip install --user ansible
         fi
         ANSIBLE_PLAYBOOK="${HOME}/.local/bin/ansible-playbook --become-method=su --ask-become-pass"
+        PLAYBOOK="notebook-playbook.yml"
         
-        # select machine type
-        PS3="Select machine type: "
-        options=("notebook" "media server")
-        select opt in "${options[@]}"
-        do
-            case $opt in
-                notebook)
-                    PLAYBOOK="notebook-playbook.yml"
-                    break
-                    ;;
-                "media server")
-                    PLAYBOOK="media_server-playbook.yml"
-                    break
-                    ;;
-                *)
-                    echo "Invalid option"
-                    ;;
-            esac
-        done
+        # # select machine type
+        # PS3="Select machine type: "
+        # options=("notebook" "media server")
+        # select opt in "${options[@]}"
+        # do
+        #     case $opt in
+        #         notebook)
+        #             PLAYBOOK="notebook-playbook.yml"
+        #             break
+        #             ;;
+        #         "media server")
+        #             PLAYBOOK="media_server-playbook.yml"
+        #             break
+        #             ;;
+        #         *)
+        #             echo "Invalid option"
+        #             ;;
+        #     esac
+        # done
 
         # setup git-lfs
         git lfs install
