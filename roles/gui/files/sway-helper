@@ -1,0 +1,122 @@
+#!/usr/bin/env ruby
+
+
+class SwayHelper
+  require 'json'
+
+  def choose_application
+    IO.popen('wofi --dmenu --insensitive', 'r+') do |io|
+      io.puts container_window_hash.values.join("\n")
+      io.close_write
+
+      selected = io.gets&.chomp
+      next unless selected
+
+      container = container_window_hash.key(selected)
+      system("swaymsg '[con_id=#{container['id']}] focus'")
+    end
+  end
+
+  def switch_application(name)
+    app_containers = application_containers_hash[name]
+    if app_containers
+      size = app_containers.size
+      focused_container_index = app_containers.find_index { |container| container['focused'] }
+      target_container =
+        if focused_container_index
+          index = (focused_container_index + 1) % size 
+          app_containers[index]
+        else
+          app_containers.find { |container| container['visible'] } || app_containers.first
+        end
+      system("swaymsg '[con_id=#{target_container['id']}] focus'")
+    elsif name == 'Alacritty'
+      system("swaymsg exec alacritty")
+    end
+  end
+
+  def new_workspace
+    system("swaymsg workspace #{new_workspace_number}")
+  end
+
+  def move_container_to_new_workspace
+    system("swaymsg 'move container to workspace #{new_workspace_number}; workspace #{new_workspace_number}'")
+  end
+
+  private
+
+  def containers
+    result = []
+    IO.popen('swaymsg -t get_tree') do |io|
+      nodes = JSON.parse(io.read)['nodes']
+      result = extract_containers(nodes)
+    end
+    result
+  end
+
+  def application_containers_hash
+    containers.group_by { |container| application_name(container) } 
+  end
+
+  def application_name(container)
+    container['app_id'] || container['window_properties']['class']
+  end
+
+  def window(container)
+    "#{application_name(container)} - #{container['name']}"
+  end
+
+  def container_window_hash
+    containers.map { |container| [container, window(container)] }.to_h
+  end
+
+  def extract_containers(nodes)
+    nodes.flat_map do |node|
+      if %w[con floating_con].include?(node['type']) && node['pid']
+        [node]
+      else
+        child_nodes = node.values_at('nodes', 'floating_nodes').flatten.compact
+        extract_containers(child_nodes)
+      end
+    end
+  end
+
+  def workspaces
+    result = []
+    IO.popen('swaymsg -t get_workspaces') do |io|
+      result = JSON.parse(io.read)
+    end
+    result
+  end
+
+  def current_workspace
+    workspaces.find { |ws| ws['focused'] }
+  end
+
+
+  def new_workspace_number
+    if current_workspace['representation']
+      sorted_ws_numbers = workspaces.map { |ws| ws['num'] }.sort
+      next_ws_number = nil
+      sorted_ws_numbers.each_with_index do |number, index|
+        if number != index + 1
+          next_ws_number = index + 1 
+          break
+        end
+      end
+      next_ws_number || sorted_ws_numbers.size.next
+    else
+      current_workspace['num']
+    end
+  end
+end
+
+sway_helper = SwayHelper.new
+
+require 'optparse'
+opt = OptionParser.new
+opt.on('--choose-application') { |v| sway_helper.choose_application }
+opt.on('--switch-application VAL') { |v| sway_helper.switch_application(v) }
+opt.on('--new-workspace') { |v| sway_helper.new_workspace }
+opt.on('--move-container-to-new-workspace') { |v| sway_helper.move_container_to_new_workspace }
+opt.parse!(ARGV)

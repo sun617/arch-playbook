@@ -1,0 +1,17 @@
+---
+
+- name: Install alacritty
+  pacman:
+    name: alacritty
+    state: present
+  become: yes
+
+- name: Create $HOME/.config/alacritty directory if it does not exist
+  file:
+    path: "{{ ansible_user_dir }}/.config/alacritty"
+    state: directory
+
+- name: Copy alacritty config
+  template:
+    src: alacritty.yml.j2
+    dest: "{{ ansible_user_dir }}/.config/alacritty/alacritty.yml"

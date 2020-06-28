@@ -1,0 +1,23 @@
+---
+
+- import_tasks: nodejs.yml
+
+- name: Install yarn
+  pacman:
+    name: yarn
+    state: present
+  become: yes
+
+- name: Install node packages of @vue/cli
+  yarn:
+    name: "{{ item }}"
+    global: yes
+    state: latest
+  with_items:
+    - "@vue/cli"
+
+- name: Config fish for yarn
+  copy:
+    src: fish/yarn.fish
+    dest: "{{ ansible_user_dir }}/.config/fish/conf.d/"
+  tags: fish

@@ -1,0 +1,49 @@
+---
+
+- name: Install openssh
+  pacman:
+    name: openssh
+    state: present
+  become: yes
+
+- name: Enable and start sshd
+  systemd:
+    name: sshd
+    enabled: yes
+    state: started
+  become: yes
+
+- name: Create $HOME/.ssh directory if it does not exist
+  file:
+    path: "{{ ansible_user_dir }}/.ssh"
+    state: directory
+
+- name: Copy ssh config
+  copy:
+    src: ssh_config
+    dest: "{{ ansible_user_dir }}/.ssh/config"
+    force: no
+
+- name: Generate ssh keys
+  user:
+    name: "{{ ansible_user_id }}"
+    generate_ssh_key: yes
+
+- name: Copy ssh-agent.service
+  copy:
+    src: systemd/user
+    dest: "{{ ansible_user_dir }}/.config/systemd/"
+
+- name: Autostart ssh-agent.service
+  systemd:
+    name: ssh-agent
+    daemon_reload: yes
+    enabled: yes
+    state: started
+    scope: user
+
+- name: Config fish for ssh
+  copy:
+    src: fish/ssh.fish
+    dest: "{{ ansible_user_dir }}/.config/fish/conf.d/"
+  tags: fish

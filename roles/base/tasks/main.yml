@@ -1,0 +1,43 @@
+---
+
+- import_tasks: fish.yml
+  tags: fish
+- import_tasks: avahi.yml
+  tags: avahi
+- import_tasks: exa.yml
+  tags: exa
+- import_tasks: nnn.yml
+  tags: nnn
+- import_tasks: openssh.yml
+  tags: openssh
+- import_tasks: python.yml
+  tags: python
+- import_tasks: starship.yml
+  tags: starship
+- import_tasks: sudo.yml
+  tags: sudo
+
+- name: Install base-devl, bat, curl, gnu-netcat, htop, jq, pwgen, rsync, unarchiver
+  pacman:
+    name:
+      - base-devel
+      - bat
+      - curl
+      - gnu-netcat
+      - htop
+      - jq
+      - man-db
+      - man-pages
+      - neovim
+      - pwgen
+      - rsync
+      - unarchiver
+    state: present
+  become: yes
+
+# - name: Add systemd-journal groups to user
+#   user:
+#     name: "{{ ansible_user_id }}"
+#     groups: systemd-journal
+#     append: yes
+#   become: yes

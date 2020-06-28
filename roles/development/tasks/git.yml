@@ -1,0 +1,25 @@
+---
+
+- name: Install git
+  pacman:
+    name: git
+    state: present
+  become: yes
+
+- name: Copy git config
+  copy:
+    src: git/config
+    dest: "{{ ansible_user_dir }}/.gitconfig"
+    force: no
+
+- name: Copy gitignore config
+  copy:
+    src: git/ignore
+    dest: "{{ ansible_user_dir }}/.config/git/"
+    force: no
+
+- name: Config fish for git
+  copy:
+    src: fish/git.fish
+    dest: "{{ ansible_user_dir }}/.config/fish/conf.d/"
+  tags: fish

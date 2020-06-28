@@ -1,0 +1,70 @@
+---
+
+- import_tasks: alacritty.yml
+  tags: alacritty
+- import_tasks: i3status-rust.yml
+  tags: i3status-rust
+
+- name: Install sway, swayidle, swaylock, light, mako, udiskie, wf-recorder, wl-clipboard, wofi, xorg-server-xwayland
+  pacman:
+    name:
+      - sway
+      - swayidle
+      - swaylock
+      - grim
+      - light
+      - mako
+      # - qt5ct
+      - slurp
+      - udiskie
+      - wf-recorder
+      - wl-clipboard
+      - wofi
+      - xdg-user-dirs
+      - xorg-server-xwayland
+    state: present
+  become: yes
+
+- name: Create $HOME/.gnupg directory if it does not exist
+  file:
+    path: "{{ ansible_user_dir }}/.gnupg"
+    state: directory
+
+- name: Copy gpg-agent.conf
+  copy:
+    src: gpg-agent.conf
+    dest: "{{ ansible_user_dir }}/.gnupg/"
+
+- name: Create $HOME/.config/sway directory if it does not exist
+  file:
+    path: "{{ ansible_user_dir }}/.config/sway"
+    state: directory
+
+- name: Copy sway-helper
+  copy:
+    src: sway-helper
+    dest: /usr/local/bin/
+    mode: 0755
+  become: yes
+
+- name: Copy sway config
+  copy:
+    src: sway.config
+    dest: "{{ ansible_user_dir }}/.config/sway/config"
+
+- name: Config fish for sway
+  copy:
+    src: fish/sway.fish
+    dest: "{{ ansible_user_dir }}/.config/fish/conf.d/"
+  tags: fish
+
+  # Enable suspend when connected with external monitor
+- name: Ensure "HandleLidSwitchDocked=suspend" in section "[Login]" in specified file
+  ini_file:
+    path: /etc/systemd/logind.conf
+    section: Login
+    option: HandleLidSwitchDocked
+    value: suspend
+    no_extra_spaces: yes
+    backup: yes
+  become: yes

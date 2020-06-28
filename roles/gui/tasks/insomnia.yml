@@ -1,0 +1,7 @@
+---
+
+- name: Install insomnia
+  pacman:
+    name: "{{ role_path }}/files/insomnia-7.1.1-1-x86_64.pkg.tar.xz"
+    state: present
+  become: yes

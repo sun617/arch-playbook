@@ -1,0 +1,21 @@
+---
+
+- name: Install fzf
+  pacman:
+    name: fzf
+    state: present
+  become: yes
+
+- name: Config fish for fzf
+  copy:
+    src: fish/fzf.fish
+    dest: "{{ ansible_user_dir }}/.config/fish/conf.d/"
+  tags: fish
+
+- name: Ensure fzf_key_bindings enabled
+  lineinfile:
+    path: "{{ ansible_user_dir }}/.config/fish/functions/fish_user_key_bindings.fish"
+    regexp: '^  fzf_key_bindings'
+    insertbefore: '^end'
+    line: '  fzf_key_bindings'
+  tags: fish

@@ -1,0 +1,13 @@
+---
+
+- name: Install exa
+  pacman:
+    name: exa
+    state: present
+  become: yes
+
+- name: Config fish for exa
+  copy:
+    src: fish/exa.fish
+    dest: "{{ ansible_user_dir }}/.config/fish/conf.d/"
+  tags: fish
