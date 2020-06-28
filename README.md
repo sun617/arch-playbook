@@ -125,7 +125,6 @@ ssh-keygen -f ~/.ssh/id_rsa_example
 # ~/.ssh/config
 Host example.github.com
   HostName github.com
-  PreferredAuthentications publickey
   IdentityFile ~/.ssh/id_rsa_example
 ```
 

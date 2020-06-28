@@ -1,7 +1,16 @@
 Host *
   ServerAliveInterval 60
+  # StrictHostKeyChecking no
 
-Host github.com
-  HostName github.com
-  PreferredAuthentications publickey
-  IdentityFile ~/.ssh/id_rsa
+# Host example.github.com
+#   HostName github.com
+#   IdentityFile ~/.ssh/id_rsa_example
+#
+# Host server
+#   HostName server.example.com
+#   ProxyJump humidai
+#   User server-user
+#
+# Host humidai
+#   HostName humidai.example.com
+#   User humidai-user
