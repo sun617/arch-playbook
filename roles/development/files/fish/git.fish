@@ -12,6 +12,7 @@ if status --is-interactive
   abbr --add --global gm    git merge
   abbr --add --global gP    git pull
   abbr --add --global gp    git push
+  abbr --add --global grb   git rebase
   abbr --add --global grm   git remote
   abbr --add --global grs   git reset
   abbr --add --global gra   git remote add upstream
