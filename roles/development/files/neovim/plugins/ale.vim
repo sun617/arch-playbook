@@ -8,4 +8,4 @@ let g:ale_fixers = {
     \ }
 
 " Map
-nmap <Leader>F <Plug>(ale_fix)
+nmap <F8> <Plug>(ale_fix)

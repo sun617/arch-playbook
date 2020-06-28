@@ -20,5 +20,5 @@ nnoremap <Leader><Leader> :Buffers<CR>
 nnoremap <Leader>C :Commands<CR>
 nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>g :GFiles<CR>
-nnoremap <C-f> :Files<Space>
-nnoremap <C-g> :Rg<Space>
+nnoremap <Leader>F :Files<Space>
+nnoremap <Leader>G :Rg<Space>

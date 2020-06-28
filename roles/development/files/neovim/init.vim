@@ -48,6 +48,7 @@ let mapleader = "\<Space>"
 " Common
 nnoremap j gj
 nnoremap k gk
+nnoremap <C-s> :source ~/.config/nvim/init.vim<CR>
 nnoremap <Leader>w :write<CR>
 nnoremap <Leader>W :write !sudo tee > /dev/null %<CR>
 nnoremap <Leader>/ :nohlsearch<CR>
@@ -61,7 +62,7 @@ nnoremap \t :tabclose<CR>
 
 " terminal
 tnoremap <C-]> <C-\><C-n>
-tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+" tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
 " QuickFix
 nnoremap [q :cprevious<CR>
@@ -72,6 +73,21 @@ nnoremap \q :cclose<CR>
 nnoremap [l :lprevious<CR>
 nnoremap ]l :lnext<CR>
 nnoremap \l :lclose<CR>
+
+" Tmux
+function! TmuxMove(direction)
+  let wnr = winnr()
+  silent! execute 'wincmd ' . a:direction
+  " If the winnr is still the same after we moved, it is the last pane
+  if wnr == winnr()
+    call system('tmux select-pane -' . tr(a:direction, 'phjkl', 'lLDUR'))
+  end
+endfunction
+
+nnoremap <silent> <M-h> :call TmuxMove('h')<CR>
+nnoremap <silent> <M-j> :call TmuxMove('j')<CR>
+nnoremap <silent> <M-k> :call TmuxMove('k')<CR>
+nnoremap <silent> <M-l> :call TmuxMove('l')<CR>
 
 " Vim-Plug
 " Specify a directory for plugins
@@ -104,31 +120,28 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 " Asynchronous linting/fixing
 Plug 'w0rp/ale'
-" tree explorer
-Plug 'scrooloose/nerdtree'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " git
 Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
 " markdown-preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
-" icon
-Plug 'ryanoasis/vim-devicons'
 " emoji
 Plug 'junegunn/vim-emoji'
+" nnn
+Plug 'mcchrish/nnn.vim'
 " Initialize plugin system
 call plug#end()
 
-colorscheme OceanicNext
-
 " plugin settings
+colorscheme OceanicNext
 source ~/.config/nvim/plugins/autopairs.vim
 source ~/.config/nvim/plugins/ale.vim
 source ~/.config/nvim/plugins/coc.vim
+source ~/.config/nvim/plugins/emoji.vim
 source ~/.config/nvim/plugins/fzf.vim
 source ~/.config/nvim/plugins/gitgutter.vim
-source ~/.config/nvim/plugins/nerdtree.vim
 source ~/.config/nvim/plugins/indent_line.vim
+source ~/.config/nvim/plugins/nnn.vim
 source ~/.config/nvim/plugins/polyglot.vim
 source ~/.config/nvim/plugins/markdown_preview.vim
 

@@ -6,6 +6,11 @@
     state: present
   become: yes
 
+- name: Clone TPM
+  git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: "{{ ansible_user_dir }}/.tmux/plugins/tpm"
+
 - name: Copy tmux config
   copy:
     src: tmux.conf
