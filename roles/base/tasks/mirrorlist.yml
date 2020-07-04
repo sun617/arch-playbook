@@ -1,0 +1,9 @@
+---
+
+- name: Copy mirrorlist
+  copy:
+    src: mirrorlist
+    dest: /etc/pacman.d/
+  become: yes
+  notify:
+    - update package database

@@ -1,11 +1,7 @@
 ---
 
-- name: Copy mirrorlist
-  copy:
-    src: mirrorlist
-    dest: /etc/pacman.d/
-  become: yes
-
+- import_tasks: mirrorlist.yml
+  tags: mirrorlist
 - import_tasks: fish.yml
   tags: fish
 - import_tasks: avahi.yml
