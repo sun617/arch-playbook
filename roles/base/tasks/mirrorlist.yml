@@ -7,3 +7,6 @@
   become: yes
   notify:
     - update package database
+
+- name: Force all notified handlers to run at this point, not waiting for normal sync points
+  meta: flush_handlers
