@@ -3,4 +3,5 @@
 - name: update package database
   pacman:
     update_cache: yes
+    upgrade: yes
   become: yes
