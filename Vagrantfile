@@ -44,7 +44,6 @@ Vagrant.configure("2") do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
-  config.vm.synced_folder "~/vm_share", "/vagrant_data"
   config.vm.synced_folder ".", "/vagrant", disabled: true
 
   # Provider-specific configuration so you can fine-tune various
@@ -82,18 +81,18 @@ Vagrant.configure("2") do |config|
     sudo pacman -S --noconfirm gptfdisk
 
     # add home partition
-    if ! sudo lsblk | grep sdb1 > /dev/null; then
+    if ! lsblk | grep sdb1 > /dev/null; then
       sudo sgdisk -n 1:0:0 -t 8302 /dev/sdb
       sudo mkfs.ext4 /dev/sdb1
-      home_uuid=$(blkid --match-tag UUID --output value /dev/sdb1)
+      home_uuid=$(sudo blkid --match-tag UUID --output value /dev/sdb1)
       cp -a /home/vagrant /tmp
       sudo sed -ie "$ a # /home was on /dev/sdb1\\\\nUUID=${home_uuid} /home           ext4    defaults        0       2" /etc/fstab
     fi
     # add docker partition
-    if ! sudo lsblk | grep sdc1 > /dev/null; then
+    if ! lsblk | grep sdc1 > /dev/null; then
       sudo sgdisk -n 1:0:0 /dev/sdc
       sudo mkfs.ext4 /dev/sdc1
-      docker_uuid=$(blkid --match-tag UUID --output value /dev/sdc1)
+      docker_uuid=$(sudo blkid --match-tag UUID --output value /dev/sdc1)
       sudo mkdir -p /var/lib/docker
       sudo sed -ie "$ a # /var/lib/docker was on /dev/sdc1\\\\nUUID=${docker_uuid} /var/lib/docker ext4    defaults        0       2" /etc/fstab
     fi
