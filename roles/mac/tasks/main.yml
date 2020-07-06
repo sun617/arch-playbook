@@ -5,7 +5,7 @@
     name: ansible
     state: present
 
-- name: Install cask packages of alfred, dbeaver-community, firefox, google-japanese-ime, insomnia, joplin, karabiner-elements, rectangle, slack
+- name: Install cask packages of alfred, dbeaver-community, firefox, google-japanese-ime, insomnia, joplin, rectangle, slack
   homebrew_cask:
     name: "{{ item }}"
     state: present
@@ -18,10 +18,11 @@
     - google-japanese-ime
     - insomnia
     - joplin
-    - karabiner-elements
     - rectangle
     - slack
 
+- import_tasks: karabiner.yml
+  tags: karabiner
 - import_tasks: alacritty.yml
   tags: alacritty
 - import_tasks: vagrant.yml
