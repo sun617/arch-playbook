@@ -1,8 +1,10 @@
 ---
 
-- name: Install nnn
+- name: Install nnn, sshfs
   pacman:
-    name: nnn
+    name:
+      - nnn
+      - sshfs
     state: present
   become: yes
 
