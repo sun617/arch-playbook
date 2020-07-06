@@ -1,8 +1,13 @@
 ---
 
+- name: Copy starship package
+  copy:
+    src: starship-0.41.3-1-x86_64.pkg.tar.xz
+    dest: "{{ ansible_user_dir }}/packages/"
+
 - name: Install starship
   pacman:
-    name: "{{ role_path }}/files/starship-0.41.3-1-x86_64.pkg.tar.xz"
+    name: "{{ ansible_user_dir }}/packages/starship-0.41.3-1-x86_64.pkg.tar.xz"
     state: present
   become: yes
 
