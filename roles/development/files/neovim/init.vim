@@ -48,6 +48,8 @@ let mapleader = "\<Space>"
 " Common
 nnoremap j gj
 nnoremap k gk
+nnoremap [b :bprevious<CR>
+nnoremap ]b :bnext<CR>
 nnoremap <C-s> :source ~/.config/nvim/init.vim<CR>
 nnoremap <Leader>w :write<CR>
 nnoremap <Leader>W :write !sudo tee > /dev/null %<CR>
@@ -123,6 +125,7 @@ Plug 'w0rp/ale'
 " git
 Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
+Plug 'APZelos/blamer.nvim'
 " markdown-preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 " emoji
@@ -140,6 +143,7 @@ source ~/.config/nvim/plugins/coc.vim
 source ~/.config/nvim/plugins/emoji.vim
 source ~/.config/nvim/plugins/fzf.vim
 source ~/.config/nvim/plugins/gitgutter.vim
+source ~/.config/nvim/plugins/blamer.vim
 source ~/.config/nvim/plugins/indent_line.vim
 source ~/.config/nvim/plugins/nnn.vim
 source ~/.config/nvim/plugins/polyglot.vim
