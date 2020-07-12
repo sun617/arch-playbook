@@ -2,6 +2,12 @@
 
 - import_tasks: mirrorlist.yml
   tags: mirrorlist
+
+- name: Set timezone to Asia/Tokyo
+  timezone:
+    name: Asia/Tokyo
+  become: yes
+
 - import_tasks: fish.yml
   tags: fish
 - import_tasks: avahi.yml
