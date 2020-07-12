@@ -1,8 +1,10 @@
 ---
 
-- name: Install git
+- name: Install git, git-lfs
   pacman:
-    name: git
+    name:
+      - git
+      - git-lfs
     state: present
   become: yes
 
