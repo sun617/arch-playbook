@@ -17,7 +17,7 @@ class SwayHelper
     end
   end
 
-  def switch_application(name)
+  def switch_or_launch_application(name)
     app_containers = application_containers_hash[name]
     if app_containers
       size = app_containers.size
@@ -30,8 +30,13 @@ class SwayHelper
           app_containers.find { |container| container['visible'] } || app_containers.first
         end
       system("swaymsg '[con_id=#{target_container['id']}] focus'")
-    elsif name == 'Alacritty'
-      system("swaymsg exec alacritty")
+    else
+      xdg_data_dirs = ENV['XDG_DATA_DIRS'].split(':')
+      desktop_files = xdg_data_dirs.flat_map { |dir| Dir.glob("*.desktop", base: "#{dir}/applications") }
+      desktop_files.grep(/#{name}/).each do |file|
+        application = file.sub(/.desktop/, '')
+        system("gtk-launch #{application}")
+      end
     end
   end
 
@@ -116,7 +121,7 @@ sway_helper = SwayHelper.new
 require 'optparse'
 opt = OptionParser.new
 opt.on('--choose-application') { |v| sway_helper.choose_application }
-opt.on('--switch-application VAL') { |v| sway_helper.switch_application(v) }
+opt.on('--switch-or-launch-application VAL') { |v| sway_helper.switch_or_launch_application(v) }
 opt.on('--new-workspace') { |v| sway_helper.new_workspace }
 opt.on('--move-container-to-new-workspace') { |v| sway_helper.move_container_to_new_workspace }
 opt.parse!(ARGV)
