@@ -4,8 +4,14 @@
   tags: alacritty
 - import_tasks: i3status-rust.yml
   tags: i3status-rust
+- import_tasks: gnupg.yml
+  tags: gnupg
+- import_tasks: kanshi.yml
+  tags: kanshi
+- import_tasks: mako.yml
+  tags: mako
 
-- name: Install sway, swayidle, swaylock, light, mako, udiskie, wf-recorder, wl-clipboard, wofi, xorg-server-xwayland
+- name: Install sway, swayidle, swaylock, grim, light, slurp, udiskie, wf-recorder, wl-clipboard, wofi, xdg-users-dirs, xorg-server-xwayland
   pacman:
     name:
       - sway
@@ -13,7 +19,6 @@
       - swaylock
       - grim
       - light
-      - mako
       # - qt5ct
       - slurp
       - udiskie
@@ -24,16 +29,6 @@
       - xorg-server-xwayland
     state: present
   become: yes
-
-- name: Create $HOME/.gnupg directory if it does not exist
-  file:
-    path: "{{ ansible_user_dir }}/.gnupg"
-    state: directory
-
-- name: Copy gpg-agent.conf
-  copy:
-    src: gpg-agent.conf
-    dest: "{{ ansible_user_dir }}/.gnupg/"
 
 - name: Create $HOME/.config/sway directory if it does not exist
   file:

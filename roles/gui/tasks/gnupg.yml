@@ -1,0 +1,11 @@
+---
+
+- name: Create $HOME/.gnupg directory if it does not exist
+  file:
+    path: "{{ ansible_user_dir }}/.gnupg"
+    state: directory
+
+- name: Copy gpg-agent.conf
+  copy:
+    src: gpg-agent.conf
+    dest: "{{ ansible_user_dir }}/.gnupg/"
