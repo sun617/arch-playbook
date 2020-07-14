@@ -4,6 +4,8 @@
   tags: flatpak
 - import_tasks: sway.yml
   tags: sway
+- import_tasks: bluetooth.yml
+  tags: bluetooth
 - import_tasks: cups.yml
   tags: cups
 - import_tasks: dbeaver.yml

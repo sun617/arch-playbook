@@ -1,0 +1,9 @@
+---
+
+- name: Install pulseaudio-bluetooth, bluez-utils
+  pacman:
+    name:
+      - bluez
+      - bluez-utils
+    state: present
+  become: yes
