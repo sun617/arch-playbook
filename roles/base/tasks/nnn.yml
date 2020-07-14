@@ -5,6 +5,8 @@
     name:
       - nnn
       - sshfs
+      - rclone
+      - fuse2
     state: present
   become: yes
 
