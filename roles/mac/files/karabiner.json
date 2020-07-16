@@ -16,7 +16,7 @@
                 },
                 "rules": [
                     {
-                        "description": "For mac default keyboard: switch command and option",
+                        "description": "For mac default keyboard: switch left_command with left_option, change right_command to right_option",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -85,33 +85,6 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "right_option",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_command"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "identifiers": [
-                                            {
-                                                "product_id": 637,
-                                                "vendor_id": 1452
-                                            }
-                                        ],
-                                        "type": "device_if"
-                                    }
-                                ],
-                                "from": {
                                     "key_code": "right_command",
                                     "modifiers": {
                                         "optional": [
@@ -128,6 +101,41 @@
                             }
 			]
 		    },
+                    {
+                        "description": "For mac default keyboard: Change right_option to right_control+right_option",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 637,
+                                                "vendor_id": 1452
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "right_option",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_option",
+                                        "modifiers": [
+					    "right_control"
+					]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
                     {
                         "description": "For mac default keyboard: Change left_arrow to right_control if pressed with other keys, to left_arrow if pressed alone",
                         "manipulators": [
@@ -166,7 +174,7 @@
                         ]
                     },
                     {
-                        "description": "For thinkpad keyboard: PrtSc as right_command",
+                        "description": "For thinkpad keyboard: Change PrtSc to right_control+right_option",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -190,7 +198,10 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "right_command"
+                                        "key_code": "right_option",
+                                        "modifiers": [
+					    "right_control"
+					]
                                     }
                                 ],
                                 "type": "basic"
