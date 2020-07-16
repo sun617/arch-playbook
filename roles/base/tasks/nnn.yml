@@ -1,6 +1,6 @@
 ---
 
-- name: Install nnn, sshfs
+- name: Install nnn, sshfs, rclone, fuse2
   pacman:
     name:
       - nnn
