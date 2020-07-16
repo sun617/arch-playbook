@@ -3,12 +3,13 @@ if status --is-interactive
   set -x GPG_TTY (tty)
   # pacman
   abbr --add --global p     pacman
-  abbr --add --global pi    pacman -S
-  abbr --add --global pI    pacman -Si
-  abbr --add --global pS    pacman -Ss
+  abbr --add --global pi    sudo pacman -S
+  abbr --add --global psi   pacman -Si
+  abbr --add --global pss   pacman -Ss
   abbr --add --global pu    sudo pacman -Syu
-  abbr --add --global pq    acman -Q
-  abbr --add --global pl    pacman -Ql
+  abbr --add --global pq    pacman -Q
+  abbr --add --global pqi   pacman -Qi
+  abbr --add --global pl    pacman -Fl
   abbr --add --global pr    sudo pacman -Rs
   # systemctl
   abbr --add --global s     systemctl
