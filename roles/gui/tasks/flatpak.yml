@@ -13,3 +13,10 @@
     src: fish/flatpak.fish
     dest: "{{ ansible_user_dir }}/.config/fish/conf.d/"
   tags: fish
+
+# https://github.com/flatpak/flatpak/issues/2861
+- name: Install gnome-settings-daemon
+  pacman:
+    name: gnome-settings-daemon
+    state: present
+  become: yes
