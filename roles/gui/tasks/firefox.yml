@@ -1,14 +1,21 @@
 ---
 
 - name: Install firefox
-  flatpak:
-    name: org.mozilla.firefox
+  pacman:
+    name: firefox
     state: present
   become: yes
 
+# fcitx5 not working on wayland mode
+# - name: Install firefox
+#   flatpak:
+#     name: org.mozilla.firefox
+#     state: present
+#   become: yes
+#
 # https://github.com/flatpak/flatpak/issues/2861
-- name: Install gnome-settings-daemon
-  pacman:
-    name: gnome-settings-daemon
-    state: present
-  become: yes
+# - name: Install gnome-settings-daemon
+#   pacman:
+#     name: gnome-settings-daemon
+#     state: present
+#   become: yes
