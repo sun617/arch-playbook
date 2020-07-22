@@ -1,14 +1,18 @@
 ---
 
-- name: Install cups
+# - import_tasks: avahi.yml
+
+- name: Install cups, ghostscript
   pacman:
-    name: cups
+    name:
+      - cups
+      - ghostscript
     state: present
   become: yes
 
-# - name: Add lpadmin group to user
-#   user:
-#     name: "{{ ansible_user_id }}"
-#     groups: lpadmin
-#     append: yes
-#   become: yes
+- name: Enable org.cups.cupsd.socket
+  systemd:
+    name: org.cups.cupsd.socket
+    enabled: yes
+  become: yes
+
