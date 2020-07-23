@@ -18,7 +18,7 @@
 - name: Change the hosts line to include mdns_minimal [NOTFOUND=return] before resolve and dns
   lineinfile:
     path: /etc/nsswitch.conf
-    regexp: '^hosts:(.+)resolve(.+)$'
-    line: 'hosts:\1mdns_minimal [NOTFOUND=return] resolve\2'
+    regexp: '^hosts:(.+myhostname).*(resolve.+)$'
+    line: 'hosts:\1 mdns_minimal [NOTFOUND=return] \2'
     backrefs: yes
   become: yes

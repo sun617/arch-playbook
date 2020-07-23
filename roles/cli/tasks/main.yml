@@ -1,0 +1,69 @@
+---
+
+- import_tasks: mirrorlist.yml
+  tags: mirrorlist
+
+- name: Set timezone to Asia/Tokyo
+  timezone:
+    name: Asia/Tokyo
+  become: yes
+
+- name: Install base-devl, bat, cmake, curl, gnu-netcat, htop, jq, pwgen, rsync, unarchiver
+  pacman:
+    name:
+      - base-devel
+      - bat
+      - cmake
+      - curl
+      - gnu-netcat
+      - htop
+      - jq
+      - man-db
+      - man-pages
+      - pwgen
+      - rsync
+      - unarchiver
+    state: present
+  become: yes
+
+- import_tasks: fish.yml
+  tags: fish
+- import_tasks: avahi.yml
+  tags: avahi
+- import_tasks: aws.yml
+  tags: aws
+- import_tasks: docker.yml
+  tags: docker
+- import_tasks: exa.yml
+  tags: exa
+- import_tasks: gcp.yml
+  tags: gcp
+- import_tasks: git.yml
+  tags: git
+- import_tasks: go.yml
+  tags: go
+- import_tasks: neovim.yml
+  tags: neovim
+- import_tasks: nnn.yml
+  tags: nnn
+- import_tasks: openssh.yml
+  tags: openssh
+- import_tasks: python.yml
+  tags: python
+- import_tasks: ruby.yml
+  tags: ruby
+- import_tasks: rust.yml
+  tags: rust
+- import_tasks: starship.yml
+  tags: starship
+- import_tasks: sudo.yml
+  tags: sudo
+- import_tasks: tmux.yml
+  tags: tmux
+
+# - name: Add systemd-journal groups to user
+#   user:
+#     name: "{{ ansible_user_id }}"
+#     groups: systemd-journal
+#     append: yes
+#   become: yes

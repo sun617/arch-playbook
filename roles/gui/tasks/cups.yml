@@ -1,7 +1,5 @@
 ---
 
-# - import_tasks: avahi.yml
-
 - name: Install cups, ghostscript
   pacman:
     name:
@@ -15,4 +13,3 @@
     name: org.cups.cupsd.socket
     enabled: yes
   become: yes
-
