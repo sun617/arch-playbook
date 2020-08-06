@@ -1,0 +1,11 @@
+---
+
+- name: Install karabiner-elements
+  homebrew_cask:
+    name: karabiner-elements
+    state: present
+
+- name: Copy karabiner config
+  copy:
+    src: karabiner.json
+    dest: "{{ ansible_user_dir }}/.config/karabiner/"

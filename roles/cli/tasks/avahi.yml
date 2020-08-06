@@ -1,0 +1,24 @@
+---
+
+- name: Install avahi, nss-mdns
+  pacman:
+    name:
+      - avahi
+      - nss-mdns
+    state: present
+  become: yes
+
+- name: Enable and start avahi-daemon
+  systemd:
+    name: avahi-daemon
+    enabled: yes
+    state: started
+  become: yes
+
+- name: Change the hosts line to include mdns_minimal [NOTFOUND=return] before resolve and dns
+  lineinfile:
+    path: /etc/nsswitch.conf
+    regexp: '^hosts:(.+myhostname).*(resolve.+)$'
+    line: 'hosts:\1 mdns_minimal [NOTFOUND=return] \2'
+    backrefs: yes
+  become: yes

@@ -1,0 +1,24 @@
+---
+
+- name: Install nnn, sshfs, rclone, fuse2
+  pacman:
+    name:
+      - nnn
+      - sshfs
+      - rclone
+      - fuse2
+    state: present
+  become: yes
+
+- name: Install nuke
+  get_url:
+    url: https://raw.githubusercontent.com/jarun/nnn/master/plugins/nuke
+    dest: /usr/local/bin/nuke
+    mode: '0755'
+  become: yes
+
+- name: Config fish for nnn
+  copy:
+    src: fish/nnn.fish
+    dest: "{{ ansible_user_dir }}/.config/fish/conf.d/"
+  tags: fish

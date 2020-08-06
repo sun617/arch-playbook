@@ -39,15 +39,17 @@ case $(uname) in
         #             ;;
         #     esac
         # done
-
-        # setup git-lfs
-        git lfs install
         ;;
     Darwin)
 	# brew
 	if ! which brew > /dev/null; then
 	    echo "Install brew"
 	    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	fi
+	# git-lfs
+	if ! brew list | grep git-lfs > /dev/null; then
+	    echo "Install git-lfs"
+	    brew install git-lfs
 	fi
 	# ansible
 	if ! brew list | grep ansible > /dev/null; then
@@ -58,6 +60,9 @@ case $(uname) in
         PLAYBOOK="mac-playbook.yml"
         ;;
 esac
+
+# setup git-lfs
+git lfs install
 
 # arch-playbook
 if [ ! -d ~/arch-playbook ]; then

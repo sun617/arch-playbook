@@ -1,0 +1,17 @@
+---
+
+- name: Install mako
+  pacman:
+    name: mako
+    state: present
+  become: yes
+
+- name: Create $HOME/.config/mako directory if it does not exist
+  file:
+    path: "{{ ansible_user_dir }}/.config/mako"
+    state: directory
+
+- name: Copy mako config
+  copy:
+    src: mako.config
+    dest: "{{ ansible_user_dir }}/.config/mako/config"
