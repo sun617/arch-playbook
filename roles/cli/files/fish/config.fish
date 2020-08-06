@@ -9,6 +9,7 @@ if status --is-interactive
   abbr --add --global pu    sudo pacman -Syu
   abbr --add --global pq    pacman -Q
   abbr --add --global pqi   pacman -Qi
+  abbr --add --global pqs   pacman -Qs
   abbr --add --global pl    pacman -Fl
   abbr --add --global pr    sudo pacman -Rs
   # systemctl

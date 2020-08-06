@@ -2,7 +2,7 @@
 
 - name: Install rust
   pacman:
-    name: rust
+    name: rustup
     state: present
   become: yes
 
