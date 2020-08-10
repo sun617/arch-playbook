@@ -1,0 +1,21 @@
+---
+
+- name: Check if yay is installed
+  stat:
+    path: /usr/bin/yay
+  register: yay
+
+- name: Install yay
+  shell: |
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg --syncdeps --install --noconfirm
+    cd ..
+    rm -r yay
+  when: yay.stat.exists == False
+
+- name: Config fish for yay
+  copy:
+    src: fish/yay.fish
+    dest: "{{ ansible_user_dir }}/.config/fish/conf.d/"
+  tags: fish

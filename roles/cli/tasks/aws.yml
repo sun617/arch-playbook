@@ -1,6 +1,6 @@
 ---
 
-- name: Check aws cli installation
+- name: Check if aws installed
   stat:
     path: /usr/local/bin/aws
   register: aws
