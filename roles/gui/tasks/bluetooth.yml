@@ -1,6 +1,6 @@
 ---
 
-- name: Install pulseaudio-bluetooth, bluez-utils
+- name: Install bluez, bluez-utils
   pacman:
     name:
       - bluez

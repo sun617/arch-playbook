@@ -1,11 +1,13 @@
 ---
 
-- name: Install imv, mpv, pulseaudio-bluetooth, zathura, zathura-pdf-mupdf
+- name: Install pulseaudio-modules-bt
+  shell: yay -S --needed --noconfirm pulseaudio-modules-bt
+
+- name: Install imv, mpv, zathura, zathura-pdf-mupdf
   pacman:
     name:
       - imv
       - mpv
-      - pulseaudio-bluetooth
       # - pulseaudio-dlna
       - zathura
       - zathura-pdf-mupdf
