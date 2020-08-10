@@ -1,15 +1,11 @@
 ---
 
-- name: Copy google-cloud-sdk package
-  copy:
-    src: google-cloud-sdk-294.0.0-1-x86_64.pkg.tar.xz
-    dest: "{{ ansible_user_dir }}/packages/"
+- name: Install google-cloud-sdk
+  shell: yay -S --needed --noconfirm google-cloud-sdk
 
-- name: Install google-cloud-sdk, kubectl
+- name: Install kubectl
   pacman:
-    name:
-      - "{{ ansible_user_dir }}/packages/google-cloud-sdk-294.0.0-1-x86_64.pkg.tar.xz"
-      - kubectl
+    name: kubectl
     state: present
   become: yes
 
