@@ -8,6 +8,7 @@
     name:
       - imv
       - mpv
+      - pavucontrol
       # - pulseaudio-dlna
       - zathura
       - zathura-pdf-mupdf
@@ -21,12 +22,6 @@
     state: link
   become: yes
   tags: nnn
-
-- name: Install pavucontrol
-  flatpak:
-    name: org.pulseaudio.pavucontrol
-    state: present
-  become: yes
 
 - name: Copy mpv config
   copy:
