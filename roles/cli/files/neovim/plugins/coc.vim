@@ -33,14 +33,14 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use `[g` and `]g` for navigate diagnostics
-nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
-nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
-nnoremap <silent> gd <Plug>(coc-definition)
-nnoremap <silent> gy <Plug>(coc-type-definition)
-nnoremap <silent> gi <Plug>(coc-implementation)
-nnoremap <silent> gr <Plug>(coc-references)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 " Use K for show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -57,7 +57,7 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
-nnoremap <Leader>rn <Plug>(coc-rename)
+nmap <Leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
 "xmap <leader>f  <Plug>(coc-format-selected)
@@ -72,15 +72,15 @@ nnoremap <Leader>rn <Plug>(coc-rename)
 "augroup end
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-xnoremap <Leader>a  <Plug>(coc-codeaction-selected)
-nnoremap <Leader>a  <Plug>(coc-codeaction-selected)
+xmap <Leader>a  <Plug>(coc-codeaction-selected)
+nmap <Leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap for do codeAction of current line
-nnoremap <Leader>ac <Plug>(coc-codeaction)
+nmap <Leader>ac <Plug>(coc-codeaction)
 " Remap for do codeLens of current line
-nnoremap <Leader>lc <Plug>(coc-codelens-action)
+nmap <Leader>lc <Plug>(coc-codelens-action)
 " Fix autofix problem of current line
-nnoremap <Leader>qf <Plug>(coc-fix-current)
+nmap <Leader>qf <Plug>(coc-fix-current)
 
 " Create mappings for function text object, requires document symbols feature of languageserver.
 "xmap if <Plug>(coc-funcobj-i)
