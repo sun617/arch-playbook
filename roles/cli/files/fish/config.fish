@@ -10,6 +10,7 @@ if status --is-interactive
   abbr --add --global pss   pacman -Ss
   abbr --add --global pq    pacman -Q
   abbr --add --global pqi   pacman -Qi
+  abbr --add --global pql   pacman -Ql
   abbr --add --global pqs   pacman -Qs
   abbr --add --global pf    pacman -F
   abbr --add --global pfl   pacman -Fl

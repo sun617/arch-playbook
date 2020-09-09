@@ -7,6 +7,7 @@ if status --is-interactive
   abbr --add --global yss   yay -Ss
   abbr --add --global yq    yay -Q
   abbr --add --global yqi   yay -Qi
+  abbr --add --global yql   yay -Ql
   abbr --add --global yqs   yay -Qs
   abbr --add --global yf    yay -F
   abbr --add --global yfl   yay -Fl
