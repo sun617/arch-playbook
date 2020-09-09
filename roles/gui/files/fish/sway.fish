@@ -8,8 +8,8 @@ if test (tty) = '/dev/tty1'
   # firefox
   set -x MOZ_ENABLE_WAYLAND 1
 
-  # vaapi
-  # set -x LIBVA_DRIVER_NAME iHD
+  # xdg-desktop-portal-wlr
+  set -x XDG_SESSION_TYPE wayland
 
   # alacritty
   set -x WINIT_UNIX_BACKEND x11
