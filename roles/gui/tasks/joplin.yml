@@ -1,0 +1,4 @@
+---
+
+- name: Install joplin
+  shell: yay -S --needed --noconfirm joplin

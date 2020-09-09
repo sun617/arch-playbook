@@ -22,6 +22,8 @@
   tags: fonts
 - import_tasks: insomnia.yml
   tags: insomnia
+- import_tasks: joplin.yml
+  tags: joplin
 - import_tasks: multimedia.yml
   tags: multimedia
 - import_tasks: network.yml
