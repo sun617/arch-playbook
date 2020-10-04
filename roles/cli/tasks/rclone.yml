@@ -1,0 +1,17 @@
+---
+
+- name: Install rclone
+  pacman:
+    name: rclone
+    state: present
+  become: yes
+
+- name: Create $HOME/.config/rclone directory if it does not exist
+  file:
+    path: "{{ ansible_user_dir }}/.config/rclone"
+    state: directory
+
+- name: Copy rclone config
+  copy:
+    src: rclone.enc
+    dest: "{{ ansible_user_dir }}/.config/rclone/rclone.conf"

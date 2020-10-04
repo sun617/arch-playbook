@@ -56,6 +56,8 @@
   tags: nnn
 - import_tasks: openssh.yml
   tags: openssh
+- import_tasks: rclone.yml
+  tags: rclone
 - import_tasks: starship.yml
   tags: starship
 - import_tasks: sudo.yml
