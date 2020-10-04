@@ -1,8 +1,10 @@
 ---
 
-- name: Install git
+- name: Install git, github-cli
   pacman:
-    name: git
+    name:
+      - git
+      - github-cli
     state: present
   become: yes
 
