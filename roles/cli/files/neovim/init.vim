@@ -121,7 +121,7 @@ Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 " Asynchronous linting/fixing
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 " git
 Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
