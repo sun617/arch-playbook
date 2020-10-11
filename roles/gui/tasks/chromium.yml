@@ -1,0 +1,10 @@
+---
+
+# https://github.com/emersion/xdg-desktop-portal-wlr/wiki/Screencast-Compatibility#browsers
+- name: Install chromium, libpipewire02
+  pacman:
+    name:
+      - chromium
+      - libpipewire02
+    state: present
+  become: yes

@@ -1,11 +1,9 @@
 ---
 
-- name: Install fwupd, intel-media-driver, libva-utils, linux-firmware
+- name: Install fwupd, linux-firmware
   pacman:
     name:
       - fwupd
-      - intel-media-driver
-      - libva-utils
       - linux-firmware
     state: present
   become: yes

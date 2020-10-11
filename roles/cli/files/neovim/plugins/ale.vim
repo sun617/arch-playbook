@@ -1,5 +1,7 @@
 let g:ale_disable_lsp = 1
+let g:ale_fix_on_save = 1
 let g:ale_fixers = {
+    \ 'go': ['gofmt'],
     \ 'javascript': ['prettier', 'eslint'],
     \ 'typescript': ['prettier', 'eslint'],
     \ 'vue': ['prettier'],
@@ -8,4 +10,4 @@ let g:ale_fixers = {
     \ }
 
 " Map
-nnoremap <F8> <Plug>(ale_fix)
+nmap <F8> <Plug>(ale_fix)

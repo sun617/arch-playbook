@@ -3,8 +3,8 @@ set -eu
 
 case $(uname) in
     Linux)
-        echo "Install git git-lfs python"
-        su -lc 'pacman -S --needed git git-lfs python'
+        echo "Install git python"
+        su -lc 'pacman -S --needed git python'
         # pip
         if [ ! -x ~/.local/bin/pip ]; then
             echo "Install pip"
@@ -46,11 +46,6 @@ case $(uname) in
 	    echo "Install brew"
 	    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	fi
-	# git-lfs
-	if ! brew list | grep git-lfs > /dev/null; then
-	    echo "Install git-lfs"
-	    brew install git-lfs
-	fi
 	# ansible
 	if ! brew list | grep ansible > /dev/null; then
 	    echo "Install ansible"
@@ -61,18 +56,10 @@ case $(uname) in
         ;;
 esac
 
-# setup git-lfs
-git lfs install
-
 # arch-playbook
 if [ ! -d ~/arch-playbook ]; then
     echo "Git clone arch-playbook repository"
     git clone https://github.com/choihongil/arch-playbook.git ~/arch-playbook
-
-    # remove ~/.gitconfig if created when `git lfs install`
-    if [ -f ~/.gitconfig ]; then
-        rm ~/.gitconfig
-    fi
 fi
 # execute playbook
 echo "Execute ansible playbook"

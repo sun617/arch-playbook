@@ -48,33 +48,33 @@ let mapleader = "\<Space>"
 " Common
 nnoremap j gj
 nnoremap k gk
-nnoremap [b :bprevious<CR>
-nnoremap ]b :bnext<CR>
-nnoremap <C-s> :source ~/.config/nvim/init.vim<CR>
-nnoremap <Leader>w :write<CR>
-nnoremap <Leader>W :write !sudo tee > /dev/null %<CR>
-nnoremap <Leader>/ :nohlsearch<CR>
-nnoremap <Leader>d :bdelete<CR>
-nnoremap <Leader>D :call delete(expand('%')) <Bar> :bdelete<CR>
-nnoremap <Leader>q :qall<CR>
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> <C-s> :source ~/.config/nvim/init.vim<CR>
+nnoremap <silent> <Leader>w :write<CR>
+nnoremap <silent> <Leader>W :write !sudo tee > /dev/null %<CR>
+nnoremap <silent> <Leader>/ :nohlsearch<CR>
+nnoremap <silent> <Leader>d :bdelete<CR>
+nnoremap <silent> <Leader>D :call delete(expand('%')) <Bar> :bdelete<CR>
+nnoremap <silent> <Leader>q :qall<CR>
 
 " tab
 "nmap <Leader>te :tabedit %<CR>
-nnoremap \t :tabclose<CR>
+nnoremap <silent> \t :tabclose<CR>
 
 " terminal
 tnoremap <C-]> <C-\><C-n>
 " tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 
 " QuickFix
-nnoremap [q :cprevious<CR>
-nnoremap ]q :cnext<CR>
-nnoremap \q :cclose<CR>
+nnoremap <silent> [q :cprevious<CR>
+nnoremap <silent> ]q :cnext<CR>
+nnoremap <silent> \q :cclose<CR>
 
 " LocationList
-nnoremap [l :lprevious<CR>
-nnoremap ]l :lnext<CR>
-nnoremap \l :lclose<CR>
+nnoremap <silent> [l :lprevious<CR>
+nnoremap <silent> ]l :lnext<CR>
+nnoremap <silent> \l :lclose<CR>
 
 " Tmux
 function! TmuxMove(direction)
@@ -121,7 +121,7 @@ Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 " Asynchronous linting/fixing
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 " git
 Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'

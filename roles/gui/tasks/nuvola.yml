@@ -1,0 +1,21 @@
+---
+
+- name: Add the Nuvola flatpak remote to the system installation
+  flatpak_remote:
+    name: nuvola
+    state: present
+    flatpakrepo_url: https://dl.tiliado.eu/flatpak/nuvola.flatpakrepo
+
+- name: Install nuvola apps service
+  flatpak:
+    name: eu.tiliado.Nuvola
+    state: present
+    remote: nuvola
+  become: yes
+
+- name: Install youtube music
+  flatpak:
+    name: eu.tiliado.NuvolaAppYoutubeMusic
+    state: present
+    remote: nuvola
+  become: yes

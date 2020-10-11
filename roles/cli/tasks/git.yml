@@ -1,10 +1,10 @@
 ---
 
-- name: Install git, git-lfs
+- name: Install git, github-cli
   pacman:
     name:
       - git
-      - git-lfs
+      - github-cli
     state: present
   become: yes
 

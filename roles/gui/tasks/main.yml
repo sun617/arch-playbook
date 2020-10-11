@@ -6,6 +6,8 @@
   tags: sway
 - import_tasks: bluetooth.yml
   tags: bluetooth
+- import_tasks: chromium.yml
+  tags: chromium
 - import_tasks: cups.yml
   tags: cups
 - import_tasks: dbeaver.yml
@@ -20,10 +22,14 @@
   tags: fonts
 - import_tasks: insomnia.yml
   tags: insomnia
+- import_tasks: joplin.yml
+  tags: joplin
 - import_tasks: multimedia.yml
   tags: multimedia
 - import_tasks: network.yml
   tags: network
+- import_tasks: nuvola.yml
+  tags: nuvola
 - import_tasks: slack.yml
   tags: slack
 - import_tasks: skype.yml
