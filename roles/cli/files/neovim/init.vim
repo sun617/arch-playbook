@@ -116,8 +116,6 @@ Plug 'honza/vim-snippets'
 " fzf
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-" Asynchronous linting/fixing
-Plug 'dense-analysis/ale'
 " git
 Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
@@ -134,7 +132,6 @@ call plug#end()
 " plugin settings
 colorscheme OceanicNext
 source ~/.config/nvim/plugins/autopairs.vim
-source ~/.config/nvim/plugins/ale.vim
 source ~/.config/nvim/plugins/coc.vim
 source ~/.config/nvim/plugins/emoji.vim
 source ~/.config/nvim/plugins/fzf.vim

@@ -1,6 +1,13 @@
 {
+  "coc.preferences.formatOnSaveFiletypes": [
+    "go",
+    "javascript",
+    "json",
+    "ruby",
+    "rust",
+    "typescript"
+  ],
   "codeLens.enable": true,
-  "diagnostic.displayByAle": true,
   "solargraph.autoformat": true,
   "solargraph.diagnostics": true,
   "solargraph.formatting": true,

@@ -1,8 +1,10 @@
 let g:coc_global_extensions = [
       \ 'coc-css',
+      \ 'coc-eslint',
       \ 'coc-go',
       \ 'coc-highlight',
       \ 'coc-json',
+      \ 'coc-prettier',
       \ 'coc-rust-analyzer',
       \ 'coc-snippets',
       \ 'coc-solargraph',
