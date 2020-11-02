@@ -28,8 +28,6 @@
   tags: multimedia
 - import_tasks: network.yml
   tags: network
-- import_tasks: nuvola.yml
-  tags: nuvola
 - import_tasks: slack.yml
   tags: slack
 - import_tasks: skype.yml
