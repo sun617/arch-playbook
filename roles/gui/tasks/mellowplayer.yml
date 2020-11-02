@@ -1,0 +1,13 @@
+---
+
+- name: Install mellowplayer
+  flatpak:
+    name: com.gitlab.ColinDuquesnoy.MellowPlayer
+    state: present
+  become: yes
+
+- name: Install playerctl
+  pacman:
+    name: playerctl
+    state: present
+  become: yes
