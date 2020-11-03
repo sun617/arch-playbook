@@ -24,8 +24,6 @@
   tags: insomnia
 - import_tasks: joplin.yml
   tags: joplin
-- import_tasks: mellowplayer.yml
-  tags: mellowplayer
 - import_tasks: multimedia.yml
   tags: multimedia
 - import_tasks: network.yml
