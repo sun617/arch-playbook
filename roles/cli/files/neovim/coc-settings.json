@@ -11,5 +11,10 @@
   "solargraph.autoformat": true,
   "solargraph.diagnostics": true,
   "solargraph.formatting": true,
-  "suggest.enablePreview": true
+  "suggest.enablePreview": true,
+  "yaml.schemas": {
+    "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json": [
+      "docker-compose.yml"
+    ]
+  }
 }

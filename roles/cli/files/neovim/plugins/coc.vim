@@ -12,6 +12,9 @@ let g:coc_global_extensions = [
       \ 'coc-vetur',
       \ 'coc-yaml',
       \ ]
+let g:coc_filetype_map = {
+  \ 'yaml.docker-compose': 'yaml'
+  \ }
 
 " TextEdit might fail if hidden is not set.
 set hidden
