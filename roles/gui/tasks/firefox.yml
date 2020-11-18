@@ -1,8 +1,8 @@
 ---
 
 # https://github.com/emersion/xdg-desktop-portal-wlr/wiki/Screencast-Compatibility#browsers
-- name: Install fedora-firefox-wayland-bin
-  shell: yay -S --needed --noconfirm fedora-firefox-wayland-bin
+- name: Install firefox-wayland-hg
+  shell: yay -S --needed --noconfirm firefox-wayland-hg
 
 # - name: Install firefox
 #   pacman:

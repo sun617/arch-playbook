@@ -8,6 +8,7 @@
     "typescript"
   ],
   "codeLens.enable": true,
+  "prettier.onlyUseLocalVersion": true,
   "solargraph.autoformat": true,
   "solargraph.diagnostics": true,
   "solargraph.formatting": true,
