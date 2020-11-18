@@ -11,12 +11,13 @@
 - import_tasks: mako.yml
   tags: mako
 
-- name: Install sway, swayidle, swaylock, grim, light, playerctl, slurp, udiskie, wf-recorder, wl-clipboard, wofi, xdg-users-dirs, xorg-server-xwayland
+- name: Install sway, swayidle, swaylock, gopass, grim, light, playerctl, slurp, udiskie, wf-recorder, wl-clipboard, wofi, xdg-users-dirs, xorg-server-xwayland
   pacman:
     name:
       - sway
       - swayidle
       - swaylock
+      - gopass
       - grim
       - light
       - playerctl

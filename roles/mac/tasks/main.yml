@@ -1,26 +1,29 @@
 ---
 
-- name: Install ansible
+- name: Install packages of ansible
   homebrew:
-    name: ansible
+    name:
+      - ansible
     state: present
 
-- name: Install cask packages of alfred, dbeaver-community, firefox, google-japanese-ime, insomnia, joplin, rectangle, slack
+- name: Install cask packages of appcleaner, dbeaver-community, firefox, font-cica, google-japanese-ime, insomnia, joplin, rectangle, slack, zoomus
   homebrew_cask:
     name: "{{ item }}"
     state: present
     accept_external_apps: true
   with_items:
-    - alfred
+    - appcleaner
     - dbeaver-community
     - firefox
-    # - google-chrome
     - google-japanese-ime
     - insomnia
     - joplin
     - rectangle
     - slack
+    - zoomus
 
+- import_tasks: gopass.yml
+  tags: gopass
 - import_tasks: karabiner.yml
   tags: karabiner
 - import_tasks: alacritty.yml
