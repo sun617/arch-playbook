@@ -44,7 +44,7 @@ case $(uname) in
 	# brew
 	if ! which brew > /dev/null; then
 	    echo "Install brew"
-	    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 	fi
 	# ansible
 	if ! brew list | grep ansible > /dev/null; then
