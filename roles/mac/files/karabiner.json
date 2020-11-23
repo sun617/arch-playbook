@@ -136,7 +136,7 @@
                                     {
                                         "identifiers": [
                                             {
-                                                "product_id": 637,
+                                                "product_id": 630,
                                                 "vendor_id": 1452
                                             }
                                         ],
@@ -172,7 +172,7 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-					    "io.alacritty"
+                                            "io.alacritty"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
@@ -188,10 +188,10 @@
                                 "to": [
                                     {
                                         "key_code": "h",
-					"modifiers": [
-					    "left_command",
-					    "left_option"
-					]
+                                        "modifiers": [
+                                            "left_command",
+                                            "left_option"
+                                        ]
                                     }
                                 ],
                                 "type": "basic"
