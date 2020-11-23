@@ -1,5 +1,5 @@
 [core]
-        quotepath = false
+  quotepath = false
 [user]
 	name = Hongri Cui
 	email = choihongil@gmail.com
@@ -10,4 +10,6 @@
 [github]
 	user = choihongil
 [pull]
-        ff = only
+  ff = only
+# [includeif "gitdir:~/example/"]
+# 	path = ~/.gitconfig_supplement

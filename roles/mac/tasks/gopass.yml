@@ -19,6 +19,7 @@
   file:
     path: "{{ ansible_user_dir }}/.gnupg"
     state: directory
+    mode: 0700
 
 - name: Copy gpg-agent.conf
   copy:
