@@ -1,0 +1,10 @@
+---
+
+- name: Install dbeaver-community, adoptopenjdk
+  homebrew_cask:
+    name: "{{ item }}"
+    state: present
+    accept_external_apps: true
+  with_items:
+    - dbeaver-community
+    - adoptopenjdk

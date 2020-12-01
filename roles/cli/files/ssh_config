@@ -4,13 +4,13 @@ Host *
 
 # Host example.github.com
 #   HostName github.com
-#   IdentityFile ~/.ssh/id_rsa_example
+#   IdentityFile ~/.ssh/id_rsa-example
 #
 # Host server
 #   HostName server.example.com
-#   ProxyJump humidai
+#   ProxyJump fumidai
 #   User server-user
 #
-# Host humidai
-#   HostName humidai.example.com
-#   User humidai-user
+# Host fumidai
+#   HostName fumidai.example.com
+#   User fumidai-user

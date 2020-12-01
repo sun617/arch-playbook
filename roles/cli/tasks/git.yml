@@ -10,9 +10,12 @@
 
 - name: Copy git config
   copy:
-    src: git/config
-    dest: "{{ ansible_user_dir }}/.gitconfig"
+    src: git/{{ item }}
+    dest: "{{ ansible_user_dir }}/.git{{ item }}"
     force: no
+  with_items:
+    - config
+    - config_supplement
 
 - name: Copy gitignore config
   copy:

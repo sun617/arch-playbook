@@ -16,14 +16,14 @@
                 },
                 "rules": [
                     {
-                        "description": "For mac default keyboard: switch left_command with left_option, change right_command to right_option",
+                        "description": "For Niz82 keyboard: switch left_command with left_option, switch right_command with right_option",
                         "manipulators": [
                             {
                                 "conditions": [
                                     {
                                         "identifiers": [
                                             {
-                                                "product_id": 637,
+                                                "product_id": 272,
                                                 "vendor_id": 1452
                                             }
                                         ],
@@ -50,7 +50,7 @@
                                     {
                                         "identifiers": [
                                             {
-                                                "product_id": 637,
+                                                "product_id": 272,
                                                 "vendor_id": 1452
                                             }
                                         ],
@@ -77,7 +77,7 @@
                                     {
                                         "identifiers": [
                                             {
-                                                "product_id": 637,
+                                                "product_id": 272,
                                                 "vendor_id": 1452
                                             }
                                         ],
@@ -98,18 +98,13 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-			]
-		    },
-                    {
-                        "description": "For mac default keyboard: Change right_option to right_control+right_option",
-                        "manipulators": [
+                            },
                             {
                                 "conditions": [
                                     {
                                         "identifiers": [
                                             {
-                                                "product_id": 637,
+                                                "product_id": 272,
                                                 "vendor_id": 1452
                                             }
                                         ],
@@ -126,10 +121,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "right_option",
-                                        "modifiers": [
-					    "right_control"
-					]
+                                        "key_code": "right_command"
                                     }
                                 ],
                                 "type": "basic"
@@ -144,7 +136,7 @@
                                     {
                                         "identifiers": [
                                             {
-                                                "product_id": 637,
+                                                "product_id": 630,
                                                 "vendor_id": 1452
                                             }
                                         ],
@@ -172,41 +164,6 @@
                                 "type": "basic"
                             }
                         ]
-                    },
-                    {
-                        "description": "For thinkpad keyboard: Change PrtSc to right_control+right_option",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "identifiers": [
-                                            {
-                                                "product_id": 24648,
-                                                "vendor_id": 6127
-                                            }
-                                        ],
-                                        "type": "device_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "print_screen",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_option",
-                                        "modifiers": [
-					    "right_control"
-					]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
                     }
                 ]
             },
@@ -217,11 +174,24 @@
                     "identifiers": {
                         "is_keyboard": true,
                         "is_pointing_device": true,
-                        "product_id": 24648,
-                        "vendor_id": 6127
+                        "product_id": 272,
+                        "vendor_id": 1452
                     },
                     "ignore": false,
-                    "manipulate_caps_lock_led": false,
+                    "manipulate_caps_lock_led": true,
+                    "simple_modifications": []
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 630,
+                        "vendor_id": 1452
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
                     "simple_modifications": []
                 }
             ],
