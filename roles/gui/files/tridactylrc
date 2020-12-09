@@ -1,0 +1,9 @@
+" Binds
+bind J tabnext
+bind K tabprev
+bind <Space><Space> fillcmdline tab
+bind --mode=ignore <Escape> mode normal
+unbind b
+
+" For syntax highlighting see https://github.com/tridactyl/vim-tridactyl
+" vim: set filetype=tridactyl
