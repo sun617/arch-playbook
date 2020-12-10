@@ -15,3 +15,6 @@
   copy:
     src: tmux.conf
     dest: "{{ ansible_user_dir }}/.tmux.conf"
+
+- name: Install tmux plugins
+  shell: "{{ ansible_user_dir }}/.tmux/plugins/tpm/bin/install_plugins"
