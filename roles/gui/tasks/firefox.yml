@@ -1,30 +1,19 @@
 ---
 
-# https://github.com/emersion/xdg-desktop-portal-wlr/wiki/Screencast-Compatibility#browsers
-- name: Install firefox-wayland-hg
-  shell: yay -S --needed --noconfirm firefox-wayland-hg
-
-# - name: Install firefox
-#   pacman:
-#     name: firefox
-#     state: present
-#   become: yes
-#
-# fcitx5 not working on wayland mode
-# - name: Install firefox
-#   flatpak:
-#     name: org.mozilla.firefox
-#     state: present
-#   become: yes
-
-# https://mastransky.wordpress.com/2020/06/03/firefox-on-fedora-finally-gets-va-api-on-wayland/
-- name: Install libva-intel-driver, libva-utils
-  pacman:
-    name:
-      - libva-intel-driver
-      - libva-utils
+- name: Install firefox
+  flatpak:
+    name: org.mozilla.firefox
     state: present
   become: yes
+
+# https://mastransky.wordpress.com/2020/06/03/firefox-on-fedora-finally-gets-va-api-on-wayland/
+# - name: Install libva-intel-driver, libva-utils
+#   pacman:
+#     name:
+#       - libva-intel-driver
+#       - libva-utils
+#     state: present
+#   become: yes
 
 - name: Install xdg-desktop-portal-wlr
   pacman:
