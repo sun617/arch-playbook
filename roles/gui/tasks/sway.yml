@@ -42,13 +42,6 @@
     src: sway.config
     dest: "{{ ansible_user_dir }}/.config/sway/config"
 
-- name: Copy sway-helper
-  copy:
-    src: sway-helper
-    dest: /usr/local/bin/
-    mode: 0755
-  become: yes
-
 - name: Config fish for sway
   copy:
     src: fish/sway.fish
