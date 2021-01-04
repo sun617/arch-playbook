@@ -11,7 +11,7 @@
 - import_tasks: mako.yml
   tags: mako
 
-- name: Install sway, swayidle, swaylock, gopass, grim, light, playerctl, slurp, udiskie, wf-recorder, wl-clipboard, wofi, xdg-users-dirs, xorg-server-xwayland
+- name: Install sway, swayidle, swaylock, gopass, grim, light, playerctl, slurp, udiskie, wf-recorder, wl-clipboard, wofi, xdg-users-dirs, xorg-xwayland
   pacman:
     name:
       - sway
@@ -28,7 +28,7 @@
       - wl-clipboard
       - wofi
       - xdg-user-dirs
-      - xorg-server-xwayland
+      - xorg-xwayland
     state: present
   become: yes
 

@@ -1,9 +1,8 @@
 if test (tty) = '/dev/tty1'
   # fcitx5
-  # set -x CLUTTER_IM_MODULE xim
-  set -x GTK_IM_MODULE fcitx5
-  set -x QT_IM_MODULE fcitx5
-  set -x XMODIFIERS @im=fcitx5      # for alacritty
+  set -x GTK_IM_MODULE fcitx
+  set -x QT_IM_MODULE fcitx
+  set -x XMODIFIERS @im=fcitx      # for alacritty
 
   # firefox
   set -x MOZ_ENABLE_WAYLAND 1
