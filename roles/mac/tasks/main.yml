@@ -23,8 +23,6 @@
 
 - import_tasks: dbeaver.yml
   tags: dbeaver
-- import_tasks: gopass.yml
-  tags: gopass
 - import_tasks: karabiner.yml
   tags: karabiner
 - import_tasks: alacritty.yml
