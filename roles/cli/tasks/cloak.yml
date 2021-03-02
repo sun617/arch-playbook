@@ -1,0 +1,4 @@
+---
+
+- name: Install cloak
+  shell: paru -S --needed --noconfirm cloak

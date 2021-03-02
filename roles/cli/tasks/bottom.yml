@@ -1,0 +1,4 @@
+---
+
+- name: Install bottom
+  shell: paru -S --needed --noconfirm bottom

@@ -1,7 +1,7 @@
 ---
 
 - name: Install google-cloud-sdk
-  shell: yay -S --needed --noconfirm google-cloud-sdk
+  shell: paru -S --needed --noconfirm google-cloud-sdk
 
 - name: Install kubectl
   pacman:

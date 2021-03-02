@@ -8,7 +8,7 @@
     name: Asia/Tokyo
   become: yes
 
-- name: Install base-devl, bat, cmake, curl, gnu-netcat, htop, jq, pwgen, rsync, unarchiver
+- name: Install base-devl, bat, cmake, curl, gnu-netcat, jq, pwgen, rsync, unarchiver
   pacman:
     name:
       - base-devel
@@ -16,7 +16,6 @@
       - cmake
       - curl
       - gnu-netcat
-      - htop
       - jq
       - man-db
       - man-pages
@@ -38,12 +37,16 @@
   tags: python
 - import_tasks: ruby.yml
   tags: ruby
-- import_tasks: yay.yml
-  tags: yay
+- import_tasks: paru.yml
+  tags: paru
 - import_tasks: avahi.yml
   tags: avahi
 - import_tasks: aws.yml
   tags: aws
+- import_tasks: bottom.yml
+  tags: bottom
+- import_tasks: cloak.yml
+  tags: cloak
 - import_tasks: docker.yml
   tags: docker
 - import_tasks: exa.yml
