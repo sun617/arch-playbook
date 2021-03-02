@@ -1,4 +1,4 @@
 ---
 
 - name: Install bottom
-  shell: paru -S --needed --noconfirm bottom
+  shell: paru -S --needed --noconfirm bottom || /bin/true

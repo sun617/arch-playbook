@@ -1,4 +1,4 @@
 ---
 
 - name: Install cloak
-  shell: paru -S --needed --noconfirm cloak
+  shell: paru -S --needed --noconfirm cloak || /bin/true

@@ -1,7 +1,7 @@
 ---
 
 - name: Install aws-cli-v2-bin
-  shell: paru -S --needed --noconfirm aws-cli-v2-bin
+  shell: paru -S --needed --noconfirm aws-cli-v2-bin || /bin/true
 
 - name: Config fish for aws
   copy:
