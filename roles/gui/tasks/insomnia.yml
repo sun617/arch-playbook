@@ -1,4 +1,0 @@
----
-
-- name: Install insomnia
-  shell: yay -S --needed --noconfirm insomnia
