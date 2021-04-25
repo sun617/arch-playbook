@@ -1,0 +1,7 @@
+---
+
+- name: Install postman
+  flatpak:
+    name: com.getpostman.Postman
+    state: present
+  become: yes

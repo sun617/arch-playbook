@@ -1,7 +1,7 @@
 ---
 
 - name: Install starship
-  shell: yay -S --needed --noconfirm starship
+  shell: paru -S --needed --noconfirm starship || /bin/true
 
 - name: Config fish for starship
   copy:

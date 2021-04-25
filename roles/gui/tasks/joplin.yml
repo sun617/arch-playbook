@@ -1,4 +1,7 @@
 ---
 
 - name: Install joplin
-  shell: yay -S --needed --noconfirm joplin
+  flatpak:
+    name: net.cozic.joplin_desktop
+    state: present
+  become: yes

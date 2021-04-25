@@ -1,0 +1,7 @@
+---
+
+- name: Install remmina
+  flatpak:
+    name: org.remmina.Remmina
+    state: present
+  become: yes

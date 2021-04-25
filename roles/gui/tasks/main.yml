@@ -12,6 +12,8 @@
   tags: cups
 - import_tasks: dbeaver.yml
   tags: dbeaver
+- import_tasks: discord.yml
+  tags: discord
 - import_tasks: driver.yml
   tags: driver
 - import_tasks: fcitx5.yml
@@ -20,14 +22,18 @@
   tags: firefox
 - import_tasks: fonts.yml
   tags: fonts
-- import_tasks: insomnia.yml
-  tags: insomnia
 - import_tasks: joplin.yml
   tags: joplin
 - import_tasks: multimedia.yml
   tags: multimedia
 - import_tasks: network.yml
   tags: network
+- import_tasks: postman.yml
+  tags: postman
+- import_tasks: remmina.yml
+  tags: remmina
+- import_tasks: signal.yml
+  tags: signal
 - import_tasks: slack.yml
   tags: slack
 - import_tasks: skype.yml

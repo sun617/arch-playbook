@@ -1,0 +1,7 @@
+---
+
+- name: Install discord
+  flatpak:
+    name: com.discordapp.Discord
+    state: present
+  become: yes

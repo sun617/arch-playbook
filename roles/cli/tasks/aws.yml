@@ -1,20 +1,7 @@
 ---
 
-- name: Check if aws installed
-  stat:
-    path: /usr/local/bin/aws
-  register: aws
-
-- name: Install aws cli
-  shell: |
-    curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o awscliv2.zip
-    unar awscliv2.zip
-    aws/install
-    rm -r aws awscliv2.zip
-  args:
-    warn: no
-  become: yes
-  when: aws.stat.exists == False
+- name: Install aws-cli-v2-bin
+  shell: paru -S --needed --noconfirm aws-cli-v2-bin || /bin/true
 
 - name: Config fish for aws
   copy:
