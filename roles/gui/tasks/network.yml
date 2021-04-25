@@ -1,10 +1,12 @@
 ---
 
-- name: Install modemmanager, networkmanager
+- name: Install modemmanager, networkmanager, nm-connection-editor, wireguard-tools
   pacman:
     name:
       - modemmanager
       - networkmanager
+      - nm-connection-editor
+      - wireguard-tools
     state: present
   become: yes
 
