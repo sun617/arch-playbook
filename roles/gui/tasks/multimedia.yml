@@ -5,7 +5,6 @@
     name:
       - imv
       - mpv
-      # - pulseaudio-dlna
       - zathura
       - zathura-pdf-mupdf
     state: present
@@ -23,8 +22,3 @@
   copy:
     src: mpv
     dest: "{{ ansible_user_dir }}/.config/"
-
-# - name: Copy pulseaudio-dlna.service
-#   copy:
-#     src: systemd/user/pulseaudio-dlna.service
-#     dest: "{{ ansible_user_dir }}/.config/systemd/user/"
