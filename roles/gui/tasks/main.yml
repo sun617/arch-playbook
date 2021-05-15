@@ -1,15 +1,15 @@
 ---
 
-- import_tasks: flatpak.yml
-  tags: flatpak
 - import_tasks: sway.yml
   tags: sway
 - import_tasks: bluetooth.yml
   tags: bluetooth
-- import_tasks: chromium.yml
-  tags: chromium
 - import_tasks: cups.yml
   tags: cups
+- import_tasks: flatpak.yml
+  tags: flatpak
+- import_tasks: chromium.yml
+  tags: chromium
 - import_tasks: dbeaver.yml
   tags: dbeaver
 - import_tasks: discord.yml
