@@ -43,6 +43,8 @@
   tags: avahi
 - import_tasks: aws.yml
   tags: aws
+- import_tasks: azure.yml
+  tags: azure
 - import_tasks: bottom.yml
   tags: bottom
 - import_tasks: cloak.yml

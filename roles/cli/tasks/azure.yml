@@ -1,0 +1,4 @@
+---
+
+- name: Install azure-cli
+  shell: paru -S --needed --noconfirm azure-cli || /bin/true
