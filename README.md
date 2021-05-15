@@ -8,7 +8,7 @@
     ```
 - Connect to the internet
     ```sh
-    wifi-menu
+    iwctl
     ```
 - Update the system clock
     ```sh
@@ -82,7 +82,7 @@
     ```
 - Install Grub
     ```sh
-    pacman -S grub efibootmgr
+    pacman -S grub efibootmgr os-prober
     grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
     grub-mkconfig -o /boot/grub/grub.cfg
     ```
@@ -99,7 +99,8 @@ useradd -m {user}
 passwd {user}
 # logout and re-login as {user}
 exit
-curl -O https://raw.githubusercontent.com/choihongil/arch-playbook/master/bootstrap.sh
+nmcli dev wifi con {ssid} password {password} name {connection name}
+curl -O https://raw.githubusercontent.com/sun617/arch-playbook/master/bootstrap.sh
 bash bootstrap.sh
 ```
 

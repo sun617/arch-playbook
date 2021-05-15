@@ -41,6 +41,5 @@
 - name: Install pynvim
   pip:
     name: pynvim
-    executable: "{{ ansible_user_dir }}/.local/bin/pip"
     extra_args: --user
     state: latest
