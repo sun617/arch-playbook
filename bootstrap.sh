@@ -3,7 +3,7 @@ set -eu
 
 case $(uname) in
     Linux)
-        echo "Install git python"
+        echo "Install git python python-pip"
         su -lc 'pacman -S --needed git python python-pip'
         # ansible
         if [ ! -x ~/.local/bin/ansible ]; then
