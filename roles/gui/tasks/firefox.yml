@@ -6,6 +6,10 @@
     state: present
   become: yes
 
+- name: Override --socket=wayland
+  shell: flatpak override --socket=wayland org.mozilla.firefox
+  become: yes
+
 # https://mastransky.wordpress.com/2020/06/03/firefox-on-fedora-finally-gets-va-api-on-wayland/
 # - name: Install libva-intel-driver, libva-utils
 #   pacman:
