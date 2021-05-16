@@ -10,6 +10,9 @@
   shell: flatpak override --socket=wayland org.mozilla.firefox
   become: yes
 
+- name: Set as default web browser
+  shell: xdg-settings set default-web-browser org.mozilla.firefox.desktop
+
 # https://mastransky.wordpress.com/2020/06/03/firefox-on-fedora-finally-gets-va-api-on-wayland/
 # - name: Install libva-intel-driver, libva-utils
 #   pacman:
