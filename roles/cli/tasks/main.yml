@@ -8,7 +8,7 @@
     name: Asia/Tokyo
   become: yes
 
-- name: Install base-devl, bat, cmake, curl, gnu-netcat, jq, pwgen, rsync, unarchiver
+- name: Install base-devl, bat, cmake, curl, gnu-netcat, jq, man-db, man-pages, mkcert, rsync, unarchiver
   pacman:
     name:
       - base-devel
@@ -19,7 +19,7 @@
       - jq
       - man-db
       - man-pages
-      - pwgen
+      - mkcert
       - rsync
       - unarchiver
     state: present
