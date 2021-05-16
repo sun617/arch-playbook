@@ -15,13 +15,25 @@
     timedatectl set-ntp true
     ```
 - Partition the disks
-    ```sh
-    lsblk
-    mkfs.vfat -F 32 /dev/nvme0n1p1
-    mkfs.ext4 /dev/nvme0n1p2
-    mkswap /dev/nvme0n1p3
-    swapon /dev/nvme0n1p3
-    ```
+    - When use total disk
+        ```sh
+        lsblk
+        # create new partition
+        gdisk /dev/nvme0n1
+        # format EFI system partition
+        mkfs.vfat -F 32 /dev/nvme0n1p1
+        # format root partition
+        mkfs.ext4 /dev/nvme0n1p2
+        ```
+    - When dual boot windows
+        ```sh
+        lsblk
+        gdisk /dev/nvme0n1
+        # create new partition
+        gdisk /dev/nvme0n1
+        # format root partition
+        mkfs.ext4 /dev/nvme0n1p5
+        ```
 - Mount the file systems
     ```sh
     mount /dev/nvme0n1p2 /mnt
@@ -43,6 +55,17 @@
 - Chroot
     ```sh
     arch-chroot /mnt
+    ```
+- Swapfile
+    - https://wiki.archlinux.org/title/Swap#Swap_file
+    ```sh
+    dd if=/dev/zero of=/swapfile bs=1M count=8196 status=progress
+    chmod 600 /swapfile
+    mkswap /swapfile
+    swapon /swapfile
+
+    # /etc/fstab
+    /swapfile none swap defaults 0 0
     ```
 - Time zone
     ```sh
