@@ -19,7 +19,6 @@
       - jq
       - man-db
       - man-pages
-      - mkcert
       - rsync
       - unarchiver
     state: present
@@ -55,6 +54,8 @@
   tags: exa
 - import_tasks: gcp.yml
   tags: gcp
+- import_tasks: mkcert.yml
+  tags: mkcert
 - import_tasks: neovim.yml
   tags: neovim
 - import_tasks: nnn.yml
