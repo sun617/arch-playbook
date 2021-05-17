@@ -15,8 +15,8 @@
   tags: fish
 
 # https://github.com/flatpak/flatpak/issues/2861
-- name: Install gnome-settings-daemon
-  pacman:
-    name: gnome-settings-daemon
-    state: present
-  become: yes
+# - name: Install gnome-settings-daemon
+#   pacman:
+#     name: gnome-settings-daemon
+#     state: present
+#   become: yes
