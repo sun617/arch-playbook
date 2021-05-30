@@ -1,8 +1,9 @@
 ---
 
-- name: Install modemmanager, networkmanager, nm-connection-editor, wireguard-tools
+- name: Install dnsmasq, modemmanager, networkmanager, nm-connection-editor, wireguard-tools
   pacman:
     name:
+      - dnsmasq
       - modemmanager
       - networkmanager
       - nm-connection-editor

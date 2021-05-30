@@ -1,10 +1,13 @@
 ---
 
-- name: Install bluez, bluez-utils
+- name: Install bluez, bluez-utils, pipewire-pulse, pavucontrol
   pacman:
     name:
       - bluez
       - bluez-utils
+      - pipewire-pulse
+      # - pulseaudio-dlna
+      - pavucontrol
     state: present
   become: yes
 
@@ -23,3 +26,8 @@
     value: "true"
     backup: yes
   become: yes
+
+# - name: Copy pulseaudio-dlna.service
+#   copy:
+#     src: systemd/user/pulseaudio-dlna.service
+#     dest: "{{ ansible_user_dir }}/.config/systemd/user/"

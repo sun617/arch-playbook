@@ -1,0 +1,9 @@
+---
+
+- name: Install mkcert, nss
+  pacman:
+    name:
+      - mkcert
+      - nss
+    state: present
+  become: yes

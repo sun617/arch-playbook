@@ -6,6 +6,9 @@
     state: present
   become: yes
 
+- name: Set the default toolchain
+  shell: rustup default stable
+
 - name: Config fish for rust
   copy:
     src: fish/rust.fish

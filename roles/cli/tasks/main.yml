@@ -8,7 +8,7 @@
     name: Asia/Tokyo
   become: yes
 
-- name: Install base-devl, bat, cmake, curl, gnu-netcat, jq, pwgen, rsync, unarchiver
+- name: Install base-devl, bat, cmake, curl, gnu-netcat, jq, man-db, man-pages, rsync, unarchiver, zip
   pacman:
     name:
       - base-devel
@@ -19,9 +19,9 @@
       - jq
       - man-db
       - man-pages
-      - pwgen
       - rsync
       - unarchiver
+      - zip
     state: present
   become: yes
 
@@ -43,6 +43,8 @@
   tags: avahi
 - import_tasks: aws.yml
   tags: aws
+- import_tasks: azure.yml
+  tags: azure
 - import_tasks: bottom.yml
   tags: bottom
 - import_tasks: cloak.yml
@@ -53,6 +55,8 @@
   tags: exa
 - import_tasks: gcp.yml
   tags: gcp
+- import_tasks: mkcert.yml
+  tags: mkcert
 - import_tasks: neovim.yml
   tags: neovim
 - import_tasks: nnn.yml

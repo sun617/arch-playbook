@@ -8,20 +8,32 @@
     ```
 - Connect to the internet
     ```sh
-    wifi-menu
+    iwctl
     ```
 - Update the system clock
     ```sh
     timedatectl set-ntp true
     ```
 - Partition the disks
-    ```sh
-    lsblk
-    mkfs.vfat -F 32 /dev/nvme0n1p1
-    mkfs.ext4 /dev/nvme0n1p2
-    mkswap /dev/nvme0n1p3
-    swapon /dev/nvme0n1p3
-    ```
+    - When use total disk
+        ```sh
+        lsblk
+        # create new partition
+        gdisk /dev/nvme0n1
+        # format EFI system partition
+        mkfs.vfat -F 32 /dev/nvme0n1p1
+        # format root partition
+        mkfs.ext4 /dev/nvme0n1p2
+        ```
+    - When dual boot windows
+        ```sh
+        lsblk
+        gdisk /dev/nvme0n1
+        # create new partition
+        gdisk /dev/nvme0n1
+        # format root partition
+        mkfs.ext4 /dev/nvme0n1p5
+        ```
 - Mount the file systems
     ```sh
     mount /dev/nvme0n1p2 /mnt
@@ -43,6 +55,17 @@
 - Chroot
     ```sh
     arch-chroot /mnt
+    ```
+- Swapfile
+    - https://wiki.archlinux.org/title/Swap#Swap_file
+    ```sh
+    dd if=/dev/zero of=/swapfile bs=1M count=8196 status=progress
+    chmod 600 /swapfile
+    mkswap /swapfile
+    swapon /swapfile
+
+    # /etc/fstab
+    /swapfile none swap defaults 0 0
     ```
 - Time zone
     ```sh
@@ -82,7 +105,7 @@
     ```
 - Install Grub
     ```sh
-    pacman -S grub efibootmgr
+    pacman -S grub efibootmgr os-prober
     grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
     grub-mkconfig -o /boot/grub/grub.cfg
     ```
@@ -99,7 +122,8 @@ useradd -m {user}
 passwd {user}
 # logout and re-login as {user}
 exit
-curl -O https://raw.githubusercontent.com/choihongil/arch-playbook/master/bootstrap.sh
+nmcli dev wifi con {ssid} password {password} name {connection name}
+curl -O https://raw.githubusercontent.com/sun617/arch-playbook/master/bootstrap.sh
 bash bootstrap.sh
 ```
 

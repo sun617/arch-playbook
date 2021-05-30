@@ -1,13 +1,10 @@
 ---
 
-- name: Install pipewire-pulse, imv, mpv, zathura, zathura-pdf-mupdf
+- name: Install imv, mpv, zathura, zathura-pdf-mupdf
   pacman:
     name:
-      - pipewire-pulse
-      - pavucontrol
       - imv
       - mpv
-      # - pulseaudio-dlna
       - zathura
       - zathura-pdf-mupdf
     state: present
@@ -25,8 +22,3 @@
   copy:
     src: mpv
     dest: "{{ ansible_user_dir }}/.config/"
-
-# - name: Copy pulseaudio-dlna.service
-#   copy:
-#     src: systemd/user/pulseaudio-dlna.service
-#     dest: "{{ ansible_user_dir }}/.config/systemd/user/"
