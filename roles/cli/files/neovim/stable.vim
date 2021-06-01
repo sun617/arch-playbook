@@ -1,3 +1,6 @@
+" for ignore packages of nvim nightly
+set packpath-=~/.local/share/nvim/site
+
 set termguicolors
 
 " encoding
