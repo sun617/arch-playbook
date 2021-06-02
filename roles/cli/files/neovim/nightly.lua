@@ -15,9 +15,10 @@ vim.opt.splitright = true
 
 -- options
 vim.opt.modeline = false
-vim.opt.swapfile = false
-vim.opt.wrap = false
 vim.opt.number = true
+vim.opt.swapfile = false
+vim.opt.termguicolors = true
+vim.opt.wrap = false
 
 -- packages
 vim.cmd 'packadd paq-nvim'         -- Load package
@@ -28,3 +29,7 @@ paq {'neovim/nvim-lspconfig'}
 paq {'hrsh7th/nvim-compe'}
 paq {'hrsh7th/vim-vsnip'}
 require('lsp')
+paq {'nvim-treesitter/nvim-treesitter'}
+require('treesitter')
+paq {'mhartington/oceanic-next'}
+require('oceanic-next')
