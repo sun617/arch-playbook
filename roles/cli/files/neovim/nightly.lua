@@ -33,3 +33,6 @@ paq {'nvim-treesitter/nvim-treesitter'}
 require('treesitter')
 paq {'mhartington/oceanic-next'}
 require('oceanic-next')
+paq {'hoob3rt/lualine.nvim'}
+paq {'kyazdani42/nvim-web-devicons', opt = true}
+require('lualine-config')

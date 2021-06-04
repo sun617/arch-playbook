@@ -8,5 +8,6 @@
       - noto-fonts-emoji
       - powerline-fonts
       - ttf-font-awesome
+      - ttf-nerd-fonts-symbols
     state: present
   become: yes
