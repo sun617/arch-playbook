@@ -34,4 +34,17 @@ require('packer').startup(function()
 
   -- kommentary
   use 'b3nj5m1n/kommentary'
+
+  -- vimagit
+  use 'jreybert/vimagit'
+  -- gitsigns
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
 end)
