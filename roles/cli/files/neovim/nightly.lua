@@ -20,19 +20,14 @@ vim.opt.swapfile = false
 vim.opt.termguicolors = true
 vim.opt.wrap = false
 
--- packages
-vim.cmd 'packadd paq-nvim'         -- Load package
-local paq = require'paq-nvim'.paq  -- Import module and bind `paq` function
-paq{'savq/paq-nvim', opt=true}     -- Let Paq manage itself
-
-paq {'neovim/nvim-lspconfig'}
-paq {'hrsh7th/nvim-compe'}
-paq {'hrsh7th/vim-vsnip'}
-require('lsp')
-paq {'nvim-treesitter/nvim-treesitter'}
-require('treesitter')
-paq {'mhartington/oceanic-next'}
-require('oceanic-next')
-paq {'hoob3rt/lualine.nvim'}
-paq {'kyazdani42/nvim-web-devicons', opt = true}
-require('lualine-config')
+-- plugins
+-- bootstraping
+local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  vim.fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
+  require('plugins')
+  vim.cmd('PackerSync')
+end
+require('plugins')
+-- automatically run :PackerCompile whenever plugins.lua is updated
+vim.cmd([[autocmd BufWritePost plugins.lua PackerCompile]])
