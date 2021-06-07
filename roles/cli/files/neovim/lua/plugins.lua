@@ -2,14 +2,21 @@ require('packer').startup(function()
   -- Packer
   use 'wbthomason/packer.nvim'
 
-  -- lsp
+  -- nvim-lspconfig
   use {
     'neovim/nvim-lspconfig',
-    requires = {
-      {'hrsh7th/nvim-compe'},
-      {'hrsh7th/vim-vsnip'}
-    },
-    config = [[require('config.lsp')]]
+    config = [[require('config.nvim-lspconfig')]]
+  }
+  -- nvim-compe
+  use {
+    'hrsh7th/nvim-compe',
+    config = [[require('config.nvim-compe')]]
+  }
+  -- vim-vsnip
+  use {
+    'hrsh7th/vim-vsnip',
+    requires = 'rafamadriz/friendly-snippets',
+    config = [[require('config.vim-vsnip')]]
   }
 
   -- treesitter
@@ -47,4 +54,7 @@ require('packer').startup(function()
       require('gitsigns').setup()
     end
   }
+
+  -- vim-sneak
+  use 'justinmk/vim-sneak'
 end)
