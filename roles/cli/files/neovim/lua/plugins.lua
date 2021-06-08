@@ -29,6 +29,7 @@ require('packer').startup(function()
     }
   }
 
+  -- telescope
   use {
     'nvim-telescope/telescope.nvim',
     config = [[require('config.telescope')]],
@@ -38,6 +39,11 @@ require('packer').startup(function()
     }
   }
 
+  -- Navigator
+  use {
+    'numToStr/Navigator.nvim',
+    config = [[require('config.navigator')]]
+  }
 
   -- treesitter
   use {
