@@ -2,7 +2,7 @@
 vim.opt.cindent = true
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
--- let &softtabstop=&shiftwidth
+vim.g.softtabstop = vim.g.shiftwidth
 vim.opt.pastetoggle = '<F10>'
 
 -- search
@@ -22,6 +22,38 @@ vim.opt.wrap = false
 
 -- map
 vim.g.mapleader = " "
+
+-- available keys
+-- ctrl-m, ctrl-p, ctrl-q, ctrl-s
+-- ca cd cm co cp cq cr cu cv cx cy cz
+-- cA cD    cO cP cQ cR cU cV cX cY cZ
+-- da dc dm dq dr du dv dx dy dz
+-- dA dC    dQ
+-- va vc vd vm vo vp vq vr vs vu vv vx vy vz
+-- vA
+-- ya yc yd ym yo yp yq yr ys yu yv yx yz
+-- yA
+-- gb gc gl
+-- gB
+-- zp zq zu zy
+
+-- Common
+vim.api.nvim_set_keymap("n", "j",         "gj",                                               { noremap = true })
+vim.api.nvim_set_keymap("n", "k",         "gk",                                               { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>w", "<Cmd>write<CR>",                                   { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>W", "<Cmd>write !sudo tee > /dev/null %<CR>",           { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>/", "<Cmd>nohlsearch<CR>",                              { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>d", "<Cmd>bdelete<CR>",                                 { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>D", "<Cmd>call delete(expand('%')) <Bar> :bdelete<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>q", "<Cmd>qall<CR>",                                    { noremap = true, silent = true })
+-- QuickFix
+vim.api.nvim_set_keymap("n", "[q",        "<Cmd>cprevious<CR>",                               { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "]q",        "<Cmd>cnext<CR>",                                   { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "\\q",        "<Cmd>cclose<CR>",                                 { noremap = true, silent = true })
+-- LocationList
+vim.api.nvim_set_keymap("n", "[l",        "<Cmd>lprevious<CR>",                               { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "]l",        "<Cmd>lnext<CR>",                                   { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "\\l",        "<Cmd>lclose<CR>",                                 { noremap = true, silent = true })
 
 -- plugins
 -- bootstraping
