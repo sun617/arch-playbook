@@ -29,6 +29,16 @@ require('packer').startup(function()
     }
   }
 
+  use {
+    'nvim-telescope/telescope.nvim',
+    config = [[require('config.telescope')]],
+    requires = {
+      { 'nvim-lua/popup.nvim' },
+      { 'nvim-lua/plenary.nvim' },
+    }
+  }
+
+
   -- treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
