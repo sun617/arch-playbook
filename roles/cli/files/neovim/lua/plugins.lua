@@ -7,6 +7,11 @@ require('packer').startup(function()
     'neovim/nvim-lspconfig',
     config = [[require('config.nvim-lspconfig')]]
   }
+  -- lspsaga
+  use {
+    'glepnir/lspsaga.nvim',
+    config = [[require('config.lspsaga')]]
+  }
   -- nvim-compe
   use {
     'hrsh7th/nvim-compe',

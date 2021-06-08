@@ -20,6 +20,9 @@ vim.opt.swapfile = false
 vim.opt.termguicolors = true
 vim.opt.wrap = false
 
+-- map
+vim.g.mapleader = " "
+
 -- plugins
 -- bootstraping
 local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
