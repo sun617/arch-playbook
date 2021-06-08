@@ -77,4 +77,4 @@ vim.api.nvim_set_keymap("i", "<C-f>",   "compe#scroll({'delta': +4})", {noremap 
 vim.api.nvim_set_keymap("i", "<C-d>",   "compe#scroll({'delta': -4})", {noremap = true, silent = true, expr = true})
 
 -- highlight
-vim.cmd[[highlight link CompeDocumentation NormalFloat]]
+--vim.cmd[[highlight link CompeDocumentation NormalFloat]]

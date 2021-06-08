@@ -5,23 +5,28 @@ require('packer').startup(function()
   -- nvim-lspconfig
   use {
     'neovim/nvim-lspconfig',
-    config = [[require('config.nvim-lspconfig')]]
-  }
-  -- lspsaga
-  use {
-    'glepnir/lspsaga.nvim',
-    config = [[require('config.lspsaga')]]
-  }
-  -- nvim-compe
-  use {
-    'hrsh7th/nvim-compe',
-    config = [[require('config.nvim-compe')]]
-  }
-  -- vim-vsnip
-  use {
-    'hrsh7th/vim-vsnip',
-    requires = 'rafamadriz/friendly-snippets',
-    config = [[require('config.vim-vsnip')]]
+    config = [[require('config.nvim-lspconfig')]],
+    requires = {
+      {
+        'ray-x/lsp_signature.nvim',
+        config = function()
+          require('lsp_signature').on_attach()
+        end
+      },
+      {
+        'glepnir/lspsaga.nvim',
+        config = [[require('config.lspsaga')]]
+      },
+      {
+        'hrsh7th/nvim-compe',
+        config = [[require('config.nvim-compe')]]
+      },
+      {
+        'hrsh7th/vim-vsnip',
+        requires = 'rafamadriz/friendly-snippets',
+        config = [[require('config.vim-vsnip')]]
+      },
+    }
   }
 
   -- treesitter
