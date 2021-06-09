@@ -58,11 +58,10 @@ require('packer').startup(function()
     config = [[require('config.oceanic-next')]]
   }
 
-  -- lualine
+  -- feline
   use {
-    'hoob3rt/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true},
-    config = [[require('config.lualine')]]
+    'famiu/feline.nvim',
+    config = [[require('feline').setup()]]
   }
 
   -- kommentary
