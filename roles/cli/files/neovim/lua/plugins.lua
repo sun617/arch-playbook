@@ -8,6 +8,9 @@ require('packer').startup(function()
     config = [[require('config.nvim-lspconfig')]],
     requires = {
       {
+        'kabouzeid/nvim-lspinstall'
+      },
+      {
         'ray-x/lsp_signature.nvim',
         config = function()
           require('lsp_signature').on_attach()
