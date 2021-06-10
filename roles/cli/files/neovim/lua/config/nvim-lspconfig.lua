@@ -49,11 +49,17 @@ local function setup_servers()
   require'lspinstall'.setup()
   local servers = require'lspinstall'.installed_servers()
   for _, server in pairs(servers) do
-    require'lspconfig'[server].setup{
+    nvim_lsp[server].setup{
       on_attach = on_attach,
       capabilities = capabilities,
     }
   end
+
+  -- solargraph
+  nvim_lsp['solargraph'].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
 end
 
 setup_servers()
@@ -66,3 +72,4 @@ end
 
 -- auto formatting
 vim.cmd([[autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync()]])
+vim.cmd([[autocmd BufWritePre *.rb lua vim.lsp.buf.formatting_sync()]])
