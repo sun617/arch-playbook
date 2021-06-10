@@ -8,7 +8,7 @@ require('packer').startup(function()
     config = [[require('config.nvim-lspconfig')]],
     requires = {
       {
-        'kabouzeid/nvim-lspinstall'
+        'kabouzeid/nvim-lspinstall',
       },
       {
         'ray-x/lsp_signature.nvim',
@@ -42,12 +42,6 @@ require('packer').startup(function()
     }
   }
 
-  -- Navigator
-  use {
-    'numToStr/Navigator.nvim',
-    config = [[require('config.navigator')]]
-  }
-
   -- treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -55,17 +49,14 @@ require('packer').startup(function()
     config = [[require('config.treesitter')]]
   }
 
-  -- oceanic-next
+  -- nvim-autopairs
   use {
-    'mhartington/oceanic-next',
-    config = [[require('config.oceanic-next')]]
+    'windwp/nvim-autopairs',
+    config = [[require('config.autopairs')]]
   }
 
-  -- feline
-  use {
-    'famiu/feline.nvim',
-    config = [[require('feline').setup()]]
-  }
+  -- vim-sneak
+  use 'justinmk/vim-sneak'
 
   -- kommentary
   use 'b3nj5m1n/kommentary'
@@ -83,6 +74,23 @@ require('packer').startup(function()
     end
   }
 
-  -- vim-sneak
-  use 'justinmk/vim-sneak'
+  -- oceanic-next
+  use {
+    'mhartington/oceanic-next',
+    config = [[require('config.oceanic-next')]]
+  }
+
+  -- feline
+  use {
+    'famiu/feline.nvim',
+    -- disable = true,
+    config = [[require('feline').setup()]],
+    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+  }
+
+  -- Navigator
+  use {
+    'numToStr/Navigator.nvim',
+    config = [[require('config.navigator')]]
+  }
 end)
