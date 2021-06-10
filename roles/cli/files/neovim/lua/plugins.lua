@@ -42,6 +42,13 @@ require('packer').startup(function()
     }
   }
 
+  -- nvim-tree
+  use {
+    'kyazdani42/nvim-tree.lua',
+    config = [[require('config.nvim-tree')]],
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+
   -- treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -83,9 +90,8 @@ require('packer').startup(function()
   -- feline
   use {
     'famiu/feline.nvim',
-    -- disable = true,
     config = [[require('feline').setup()]],
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
   -- Navigator
