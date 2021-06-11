@@ -10,5 +10,5 @@
     state: present
   become: yes
 
-- name: Install nerd-fonts-source-code-pro
-  shell: paru -S --needed --noconfirm nerd-fonts-source-code-pro || /bin/true
+- name: Install nerd-fonts-hack
+  shell: paru -S --needed --noconfirm nerd-fonts-hack || /bin/true
