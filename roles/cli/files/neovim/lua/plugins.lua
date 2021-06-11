@@ -76,9 +76,7 @@ require('packer').startup(function()
     requires = {
       'nvim-lua/plenary.nvim'
     },
-    config = function()
-      require('gitsigns').setup()
-    end
+    config = [[require('config.gitsigns')]]
   }
 
   -- oceanic-next
