@@ -69,9 +69,6 @@ require('packer').startup(function()
     config = [[require('config.hop')]]
   }
 
-  -- vim-sneak
-  use 'justinmk/vim-sneak'
-
   -- kommentary
   use 'b3nj5m1n/kommentary'
 
