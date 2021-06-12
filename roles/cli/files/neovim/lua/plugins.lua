@@ -62,6 +62,13 @@ require('packer').startup(function()
     config = [[require('config.autopairs')]]
   }
 
+  -- hop
+  use {
+    'phaazon/hop.nvim',
+    as = 'hop',
+    config = [[require('config.hop')]]
+  }
+
   -- vim-sneak
   use 'justinmk/vim-sneak'
 
