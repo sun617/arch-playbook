@@ -69,6 +69,12 @@ require('packer').startup(function()
     config = [[require('config.hop')]]
   }
 
+  -- indent-blankline
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    branch = 'lua',
+  }
+
   -- kommentary
   use 'b3nj5m1n/kommentary'
 
