@@ -95,8 +95,6 @@ require('packer').startup(function()
     end
   }
 
-  -- vimagit
-  use 'jreybert/vimagit'
   -- gitsigns
   use {
     'lewis6991/gitsigns.nvim',
@@ -104,6 +102,16 @@ require('packer').startup(function()
       'nvim-lua/plenary.nvim'
     },
     config = [[require('config.gitsigns')]]
+  }
+  -- vimagit
+  use 'jreybert/vimagit'
+  -- neogit
+  use {
+    'TimUntersberger/neogit',
+    requires = 'nvim-lua/plenary.nvim',
+    config = function()
+      vim.api.nvim_set_keymap("n", "<Leader>m", "<Cmd>Neogit<CR>", { noremap = true })
+    end
   }
 
   -- oceanic-next
