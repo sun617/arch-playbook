@@ -13,8 +13,10 @@ vim.opt.smartcase = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 -- options
+vim.opt.hidden = true
 vim.opt.modeline = false
 vim.opt.number = true
+vim.opt.signcolumn = 'number'
 vim.opt.swapfile = false
 vim.opt.termguicolors = true
 vim.opt.wrap = false
