@@ -136,6 +136,14 @@ require('packer').startup(function()
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
+  -- colorizer
+  use {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require'colorizer'.setup()
+    end
+  }
+
   -- Navigator
   use {
     'numToStr/Navigator.nvim',
