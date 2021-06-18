@@ -41,7 +41,7 @@ vim.g.mapleader = " "
 -- Common
 vim.api.nvim_set_keymap("n", "j",         "gj",                                               { noremap = true })
 vim.api.nvim_set_keymap("n", "k",         "gk",                                               { noremap = true })
-vim.api.nvim_set_keymap("n", "<Leader>w", "<Cmd>write<CR>",                                   { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>w", "<Cmd>update<CR>",                                  { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>W", "<Cmd>write !sudo tee > /dev/null %<CR>",           { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>/", "<Cmd>nohlsearch<CR>",                              { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>d", "<Cmd>bdelete<CR>",                                 { noremap = true, silent = true })
