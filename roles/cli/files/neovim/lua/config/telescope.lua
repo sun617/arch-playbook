@@ -35,6 +35,6 @@ vim.api.nvim_set_keymap("n", "gd",               "<Cmd>lua require('telescope.bu
 vim.api.nvim_set_keymap("n", "gi",               "<Cmd>lua require('telescope.builtin').lsp_implementations()<CR>",  { noremap = true })
 vim.api.nvim_set_keymap("n", "gr",               "<Cmd>lua require('telescope.builtin').lsp_references()<CR>",       { noremap = true })
 vim.api.nvim_set_keymap("n", "<Leader>s",        "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Leader>ca",       "<Cmd>lua require('telescope.builtin').lsp_code_actions()<CR>",     { noremap = true })
+-- vim.api.nvim_set_keymap("n", "<Leader>ca",       "<Cmd>lua require('telescope.builtin').lsp_code_actions()<CR>",     { noremap = true })
 
 return M

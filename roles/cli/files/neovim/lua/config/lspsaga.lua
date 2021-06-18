@@ -3,8 +3,8 @@ local opts = { noremap=true, silent=true }
 -- lsp provider to find the cursor word definition and reference
 --vim.api.nvim_set_keymap("n", "gh",         "<Cmd>lua require'lspsaga.provider'.lsp_finder()<CR>",                 opts)
 -- code action
---vim.api.nvim_set_keymap("n", "<Leader>ca", "<Cmd>lua require('lspsaga.codeaction').code_action()<CR>",            opts)
---vim.api.nvim_set_keymap("v", "<Leader>ca", ":<C-u>lua require('lspsaga.codeaction').range_code_action()<CR>",     opts)
+vim.api.nvim_set_keymap("n", "<Leader>ca", "<Cmd>lua require('lspsaga.codeaction').code_action()<CR>",            opts)
+vim.api.nvim_set_keymap("v", "<Leader>ca", ":<C-u>lua require('lspsaga.codeaction').range_code_action()<CR>",     opts)
 -- show hover doc
 vim.api.nvim_set_keymap("n", "K",          "<Cmd>lua require('lspsaga.hover').render_hover_doc()<CR>",            opts)
 -- show signature help
