@@ -63,6 +63,14 @@ require('packer').startup(function()
     config = [[require('config.autopairs')]]
   }
 
+  -- surround
+  use {
+    'blackCauldron7/surround.nvim',
+    config = function()
+      require 'surround'.setup {}
+    end
+  }
+
   -- hop
   use {
     'phaazon/hop.nvim',
