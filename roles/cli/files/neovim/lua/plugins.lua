@@ -144,6 +144,15 @@ require('packer').startup(function()
     end
   }
 
+  -- glow
+  use {
+    'npxbr/glow.nvim',
+    run = ':GlowInstall',
+    config = function()
+      vim.api.nvim_set_keymap("n", "<Leader>p", "<Cmd>Glow<CR>", {})
+    end
+  }
+
   -- Navigator
   use {
     'numToStr/Navigator.nvim',
