@@ -50,6 +50,8 @@ local on_attach = function(client, bufnr)
     augroup END
     ]], false)
   end
+  -- lsp_signature
+  require('lsp_signature').on_attach()
 end
 
 -- use lsp snippet
