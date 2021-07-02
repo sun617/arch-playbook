@@ -1,16 +1,8 @@
 ---
 
-- import_tasks: fzf.yml
-  tags: fzf
-- import_tasks: yarn.yml    # required by plugin installation (ex.: iamcco/markdown-preview.nvim)
-  tags: yarn
-
-- name: Install fd, neovim, ripgrep
+- name: Install neovim
   pacman:
-    name:
-      - fd
-      - neovim
-      - ripgrep
+    name: neovim
     state: present
   become: yes
 
