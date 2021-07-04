@@ -8,17 +8,19 @@
     name: Asia/Tokyo
   become: yes
 
-- name: Install base-devl, bat, cmake, curl, gnu-netcat, jq, man-db, man-pages, rsync, unarchiver, zip
+- name: Install base-devl, bat, cmake, curl, fd, gnu-netcat, jq, man-db, man-pages, ripgrep, rsync, unarchiver, zip
   pacman:
     name:
       - base-devel
       - bat
       - cmake
       - curl
+      - fd
       - gnu-netcat
       - jq
       - man-db
       - man-pages
+      - ripgrep
       - rsync
       - unarchiver
       - zip
@@ -27,6 +29,8 @@
 
 - import_tasks: fish.yml
   tags: fish
+- import_tasks: fzf.yml
+  tags: fzf
 - import_tasks: git.yml
   tags: git
 - import_tasks: go.yml

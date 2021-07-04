@@ -1,16 +1,8 @@
 ---
 
-- import_tasks: fzf.yml
-  tags: fzf
-- import_tasks: yarn.yml    # required by plugin installation (ex.: iamcco/markdown-preview.nvim)
-  tags: yarn
-
-- name: Install fd, neovim, ripgrep
+- name: Install neovim
   pacman:
-    name:
-      - fd
-      - neovim
-      - ripgrep
+    name: neovim
     state: present
   become: yes
 
@@ -24,19 +16,6 @@
   copy:
     src: neovim/
     dest: "{{ ansible_user_dir }}/.config/nvim/"
-
-- name: Create $HOME/.local/share/nvim/site/autoload directory if it does not exist
-  file:
-    path: "{{ ansible_user_dir }}/.local/share/nvim/site/autoload"
-    state: directory
-
-- name: Install vim-plug
-  get_url:
-    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    dest: "{{ ansible_user_dir }}/.local/share/nvim/site/autoload/"
-
-- name: Install neovim plugins
-  shell: nvim +PlugUpdate +qall
 
 - name: Install pynvim
   pip:

@@ -1,12 +1,14 @@
 ---
 
-- name: Install noto-fonts, noto-fonts-cjk, noto-fonts-emoji, powerline-fonts, ttf-font-awesome
+- name: Install noto-fonts, noto-fonts-cjk, noto-fonts-emoji, ttf-font-awesome
   pacman:
     name:
       - noto-fonts
       - noto-fonts-cjk
       - noto-fonts-emoji
-      - powerline-fonts
       - ttf-font-awesome
     state: present
   become: yes
+
+- name: Install nerd-fonts-hack
+  shell: paru -S --needed --noconfirm nerd-fonts-hack || /bin/true
