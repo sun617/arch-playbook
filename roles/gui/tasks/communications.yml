@@ -1,0 +1,14 @@
+---
+
+- name: Install discord, signal, skype, slack, telegram, zoom
+  flatpak:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - com.discordapp.Discord
+    - org.signal.Signal
+    - com.skype.Client
+    - com.slack.Slack
+    - org.telegram.desktop
+    - us.zoom.Zoom
+  become: yes

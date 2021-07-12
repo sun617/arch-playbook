@@ -4,6 +4,8 @@
   tags: sway
 - import_tasks: audio.yml
   tags: audio
+- import_tasks: communications.yml
+  tags: communications
 - import_tasks: cups.yml
   tags: cups
 - import_tasks: flatpak.yml
@@ -12,8 +14,6 @@
   tags: chromium
 - import_tasks: dbeaver.yml
   tags: dbeaver
-- import_tasks: discord.yml
-  tags: discord
 - import_tasks: driver.yml
   tags: driver
 - import_tasks: fcitx5.yml
@@ -32,11 +32,3 @@
   tags: postman
 - import_tasks: remmina.yml
   tags: remmina
-- import_tasks: signal.yml
-  tags: signal
-- import_tasks: slack.yml
-  tags: slack
-- import_tasks: skype.yml
-  tags: skype
-- import_tasks: zoom.yml
-  tags: zoom
