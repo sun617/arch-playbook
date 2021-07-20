@@ -1,7 +1,10 @@
 ---
 
 - name: Install starship
-  shell: paru -S --needed --noconfirm starship || /bin/true
+  pacman:
+    name: starship
+    state: present
+  become: yes
 
 - name: Config fish for starship
   copy:
