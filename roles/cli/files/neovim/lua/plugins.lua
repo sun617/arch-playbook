@@ -78,7 +78,6 @@ require('packer').startup(function()
   -- indent-blankline
   use {
     'lukas-reineke/indent-blankline.nvim',
-    branch = 'lua',
     config = function()
       vim.g.indent_blankline_show_first_indent_level = false
       vim.g.indent_blankline_show_trailing_blankline_indent = false
