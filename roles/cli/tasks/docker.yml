@@ -20,12 +20,6 @@
     append: yes
   become: yes
 
-- name: Install docker-compose
-  pip:
-    name: docker-compose
-    extra_args: --user
-    state: latest
-
 - name: Config fish for docker
   copy:
     src: fish/docker.fish
