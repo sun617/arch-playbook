@@ -1,11 +1,12 @@
 ---
 
-- name: Install discord, signal, skype, slack, telegram, zoom
+- name: Install discord, Element, signal, skype, slack, telegram, zoom
   flatpak:
     name: "{{ item }}"
     state: present
   with_items:
     - com.discordapp.Discord
+    - im.riot.Riot
     - org.signal.Signal
     - com.skype.Client
     - com.slack.Slack
