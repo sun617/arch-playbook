@@ -108,8 +108,6 @@ require('packer').startup(function()
     },
     config = [[require('config.gitsigns')]]
   }
-  -- vimagit
-  use 'jreybert/vimagit'
   -- neogit
   use {
     'TimUntersberger/neogit',
