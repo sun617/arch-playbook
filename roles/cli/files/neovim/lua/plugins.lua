@@ -30,13 +30,13 @@ require('packer').startup(function()
     }
   }
 
-  -- telescope
+  -- fzf-lua
   use {
-    'nvim-telescope/telescope.nvim',
-    config = [[require('config.telescope')]],
+    'ibhagwan/fzf-lua',
+    config = [[require('config.fzf-lua')]],
     requires = {
-      { 'nvim-lua/popup.nvim' },
-      { 'nvim-lua/plenary.nvim' },
+      'vijaymarupudi/nvim-fzf',
+      'kyazdani42/nvim-web-devicons'
     }
   }
 
