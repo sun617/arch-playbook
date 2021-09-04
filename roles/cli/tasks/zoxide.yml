@@ -1,0 +1,13 @@
+---
+
+- name: Install zoxide
+  pacman:
+    name: zoxide
+    state: present
+  become: yes
+
+- name: Config fish for zoxide
+  copy:
+    src: fish/zoxide.fish
+    dest: "{{ ansible_user_dir }}/.config/fish/conf.d/"
+  tags: fish

@@ -75,6 +75,8 @@
   tags: sudo
 - import_tasks: tmux.yml
   tags: tmux
+- import_tasks: zoxide.yml
+  tags: zoxide
 
 # - name: Add systemd-journal groups to user
 #   user:
