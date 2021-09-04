@@ -1,6 +1,6 @@
 if status --is-interactive
-  alias ea "exa --all --long --git"
-  alias ee exa
-  alias el "exa --long --header --group --git"
-  alias et "exa --tree"
+  alias la "exa --all --long --git"
+  alias ls exa
+  alias ll "exa --long --header --group --git"
+  alias lt "exa --tree"
 end
