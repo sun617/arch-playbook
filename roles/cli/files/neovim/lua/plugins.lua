@@ -19,13 +19,14 @@ require('packer').startup(function()
         config = [[require('config.lspsaga')]]
       },
       {
-        'hrsh7th/nvim-compe',
-        config = [[require('config.nvim-compe')]]
-      },
-      {
-        'hrsh7th/vim-vsnip',
-        requires = 'rafamadriz/friendly-snippets',
-        config = [[require('config.vim-vsnip')]]
+        'hrsh7th/nvim-cmp',
+        config = [[require('config.nvim-cmp')]],
+        requires = {
+          'L3MON4D3/LuaSnip',
+          'hrsh7th/cmp-nvim-lsp',
+          'saadparwaiz1/cmp_luasnip',
+          'hrsh7th/cmp-buffer',
+        }
       },
     }
   }
