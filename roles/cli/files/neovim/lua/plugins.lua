@@ -15,10 +15,6 @@ require('packer').startup(function()
         'ray-x/lsp_signature.nvim',
       },
       {
-        'glepnir/lspsaga.nvim',
-        config = [[require('config.lspsaga')]]
-      },
-      {
         'hrsh7th/nvim-cmp',
         config = [[require('config.nvim-cmp')]],
         requires = {
