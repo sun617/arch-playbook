@@ -1,7 +1,7 @@
 -- Install missing servers
 local required_servers = {
   'go',
-  -- 'ruby',
+  'ruby',
   'rust',
   'typescript',
   'vue',

@@ -42,7 +42,8 @@ local on_attach = function(client, bufnr)
     ]], false)
   end
   -- auto formatting
-  if client.resolved_capabilities.document_formatting then
+  -- exclude java
+  if client.name ~= 'java' and client.resolved_capabilities.document_formatting then
     vim.api.nvim_exec([[
     augroup lsp_formatting_sync
       autocmd! * <buffer>
@@ -54,16 +55,9 @@ local on_attach = function(client, bufnr)
   require('lsp_signature').on_attach()
 end
 
--- use lsp snippet
+-- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-  properties = {
-    'documentation',
-    'detail',
-    'additionalTextEdits',
-  }
-}
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
@@ -78,12 +72,6 @@ local function setup_servers()
       capabilities = capabilities,
     }
   end
-
-  -- solargraph
-  nvim_lsp['solargraph'].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
 end
 
 setup_servers()
