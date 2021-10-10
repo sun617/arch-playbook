@@ -24,20 +24,6 @@ vim.opt.wrap = false
 -- map
 vim.g.mapleader = " "
 
--- available keys
--- ctrl-m, ctrl-p, ctrl-q, ctrl-s
--- ca cd cm co cp cq cr cu cv cx cy cz
--- cA cD    cO cP cQ cR cU cV cX cY cZ
--- da dc dm dq dr du dv dx dy dz
--- dA dC    dQ
--- va vc vd vm vo vp vq vr vs vu vv vx vy vz
--- vA
--- ya yc yd ym yo yp yq yr ys yu yv yx yz
--- yA
--- gb gc gl
--- gB
--- zp zq zu zy
-
 -- Common
 vim.api.nvim_set_keymap("n", "j",         "gj",                                               { noremap = true })
 vim.api.nvim_set_keymap("n", "k",         "gk",                                               { noremap = true })
