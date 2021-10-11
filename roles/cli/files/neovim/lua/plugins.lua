@@ -18,14 +18,16 @@ require('packer').startup(function()
         'hrsh7th/nvim-cmp',
         config = [[require('config.nvim-cmp')]],
         requires = {
+          'hrsh7th/cmp-nvim-lsp',
+          'hrsh7th/cmp-buffer',
           {
             'L3MON4D3/LuaSnip',
-            requires = 'rafamadriz/friendly-snippets',
+            requires = {
+              'saadparwaiz1/cmp_luasnip',
+              'rafamadriz/friendly-snippets'
+            },
             config = [[require('config.luasnip')]]
           },
-          'hrsh7th/cmp-nvim-lsp',
-          'saadparwaiz1/cmp_luasnip',
-          'hrsh7th/cmp-buffer',
         }
       },
     }
