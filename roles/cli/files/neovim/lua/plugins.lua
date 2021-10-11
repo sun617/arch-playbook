@@ -89,11 +89,10 @@ require('packer').startup(function()
   use {
     'b3nj5m1n/kommentary',
     config = function()
-      -- https://github.com/b3nj5m1n/kommentary/issues/20
       vim.g.kommentary_create_default_mappings = false
-      vim.api.nvim_set_keymap("n", "gcc", "<Plug>kommentary_line_default", {})
-      vim.api.nvim_set_keymap("n", "gc", "<Plug>kommentary_motion_default", {})
-      vim.api.nvim_set_keymap("v", "gc", "<Plug>kommentary_visual_default<C-c>", {})
+      vim.api.nvim_set_keymap("n", "<Leader>cc", "<Plug>kommentary_line_default",   {})
+      vim.api.nvim_set_keymap("n", "<Leader>c",  "<Plug>kommentary_motion_default", {})
+      vim.api.nvim_set_keymap("x", "<Leader>c",  "<Plug>kommentary_visual_default", {})
 
       require('kommentary.config').configure_language("default", {
         prefer_single_line_comments = true,
@@ -118,7 +117,7 @@ require('packer').startup(function()
     end
   }
 
-  -- oceanic-next
+  -- theme
   use {
     'mhartington/oceanic-next',
     config = [[require('config.oceanic-next')]]
