@@ -121,8 +121,10 @@ require('packer').startup(function()
 
   -- theme
   use {
-    'mhartington/oceanic-next',
-    config = [[require('config.oceanic-next')]]
+    'EdenEast/nightfox.nvim',
+    config = function()
+      require('nightfox').load('nightfox')
+    end
   }
 
   -- feline
