@@ -12,6 +12,11 @@ require('packer').startup(function()
         config = [[require('config.nvim-lspinstall')]]
       },
       {
+        'jose-elias-alvarez/null-ls.nvim',
+        config = [[require('config.null-ls')]],
+        requires = { 'nvim-lua/plenary.nvim' }
+      },
+      {
         'ray-x/lsp_signature.nvim',
       },
       {
