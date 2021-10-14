@@ -3,21 +3,19 @@ local helpers = require('null-ls.helpers')
 null_ls.config({
   sources = {
     -- eslint
-    helpers.conditional(function(utils)
-      local project_local_eslint = "node_modules/.bin/eslint"
-
-      return null_ls.builtins.diagnostics.eslint.with({
-        command = utils.root_has_file(project_local_eslint) and project_local_eslint or 'eslint',
-      })
-    end),
+    null_ls.builtins.diagnostics.eslint.with({
+      condition = function(utils)
+        return utils.root_has_file('node_modules/.bin/eslint')
+      end,
+      command = 'node_modules/.bin/eslint'
+    }),
     -- prettier
-    helpers.conditional(function(utils)
-      local project_local_prettier = "node_modules/.bin/prettier"
-
-      return null_ls.builtins.formatting.prettier.with({
-        command = utils.root_has_file(project_local_prettier) and project_local_prettier or 'prettier',
-      })
-    end)
+    null_ls.builtins.formatting.prettier.with({
+      condition = function(utils)
+        return utils.root_has_file('node_modules/.bin/prettier')
+      end,
+      command = 'node_modules/.bin/prettier'
+    }),
   }
 })
 
