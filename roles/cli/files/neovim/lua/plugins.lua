@@ -8,14 +8,14 @@ require('packer').startup(function()
     config = [[require('config.nvim-lspconfig')]],
     requires = {
       {
-        'kabouzeid/nvim-lspinstall',
-        config = [[require('config.nvim-lspinstall')]]
+        'williamboman/nvim-lsp-installer',
+        config = [[require('config.nvim-lsp-installer')]]
       },
-      {
-        'jose-elias-alvarez/null-ls.nvim',
-        config = [[require('config.null-ls')]],
-        requires = { 'nvim-lua/plenary.nvim' }
-      },
+      -- {
+      --   'jose-elias-alvarez/null-ls.nvim',
+      --   config = [[require('config.null-ls')]],
+      --   requires = { 'nvim-lua/plenary.nvim' }
+      -- },
       {
         'ray-x/lsp_signature.nvim',
       },
