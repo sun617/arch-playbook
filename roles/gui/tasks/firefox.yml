@@ -13,15 +13,6 @@
 - name: Set as default web browser
   shell: xdg-settings set default-web-browser org.mozilla.firefox.desktop
 
-# https://mastransky.wordpress.com/2020/06/03/firefox-on-fedora-finally-gets-va-api-on-wayland/
-# - name: Install libva-intel-driver, libva-utils
-#   pacman:
-#     name:
-#       - libva-intel-driver
-#       - libva-utils
-#     state: present
-#   become: yes
-
 - name: Install xdg-desktop-portal-wlr
   pacman:
     name: xdg-desktop-portal-wlr
@@ -33,3 +24,5 @@
     src: environment.d
     dest: "{{ ansible_user_dir }}/.config/"
 
+# Hardware video acceleration
+https://wiki.archlinux.org/title/firefox#Hardware_video_acceleration
