@@ -52,6 +52,17 @@ lsp_installer.on_server_ready(function (server)
     end
   end
 
+  -- sumneko_lua
+  if server.name == 'sumneko_lua' then
+    opts.settings = {
+      Lua = {
+        diagnostics = {
+          globals = { 'vim' }
+        }
+      }
+    }
+  end
+
   server:setup(opts)
   vim.cmd [[ do User LspAttachBuffers ]]
 end)
