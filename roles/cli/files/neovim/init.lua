@@ -1,5 +1,5 @@
 -- encoding
-vim.opt.fileencodings = 'utf-8,utf-16le,cp932,iso-2022-jp,euc-jp,latin1'
+vim.opt.fileencodings = 'utf-8,cp932,utf-16le,iso-2022-jp,euc-jp,latin1'
 -- indent
 vim.opt.smartindent = true
 vim.opt.shiftwidth = 2
@@ -13,7 +13,6 @@ vim.opt.smartcase = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 -- options
-vim.opt.hidden = true
 vim.opt.modeline = false
 vim.opt.number = true
 vim.opt.pastetoggle = '<F10>'
@@ -30,7 +29,6 @@ vim.api.nvim_set_keymap("n", "j",         "gj",                                 
 vim.api.nvim_set_keymap("n", "k",         "gk",                                               { noremap = true })
 vim.api.nvim_set_keymap("n", "<Leader>w", "<Cmd>update<CR>",                                  { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>W", "<Cmd>write !sudo tee > /dev/null %<CR>",           { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>/", "<Cmd>nohlsearch<CR>",                              { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>d", "<Cmd>bdelete<CR>",                                 { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>D", "<Cmd>call delete(expand('%')) <Bar> :bdelete<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Leader>q", "<Cmd>qall<CR>",                                    { noremap = true, silent = true })
