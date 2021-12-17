@@ -8,7 +8,7 @@
     name: Asia/Tokyo
   become: yes
 
-- name: Install base-devl, bat, bottom, cmake, curl, fd, gnu-netcat, jq, man-db, man-pages, ripgrep, rsync, skim, unarchiver, zip
+- name: Install base-devl, bat, bottom, cmake, direnv, curl, fd, gnu-netcat, jq, man-db, man-pages, ripgrep, rsync, skim, unarchiver, zip
   pacman:
     name:
       - base-devel
@@ -16,6 +16,7 @@
       - bottom
       - cmake
       - curl
+      - direnv
       - fd
       - gnu-netcat
       - jq
