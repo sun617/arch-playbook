@@ -10,8 +10,8 @@
   tags: cups
 - import_tasks: flatpak.yml
   tags: flatpak
-- import_tasks: chromium.yml
-  tags: chromium
+- import_tasks: chrome.yml
+  tags: chrome
 - import_tasks: dbeaver.yml
   tags: dbeaver
 - import_tasks: driver.yml

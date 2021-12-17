@@ -1,0 +1,4 @@
+---
+
+- name: Install chrome
+  shell: paru -S --needed --noconfirm google-chrome || /bin/true
