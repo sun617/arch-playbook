@@ -10,6 +10,8 @@
   tags: kanshi
 - import_tasks: mako.yml
   tags: mako
+- import_tasks: swayr.yml
+  tags: swayr
 
 - name: Install sway, swayidle, swaylock, grim, light, playerctl, slurp, udiskie, wf-recorder, wl-clipboard, wofi, xdg-users-dirs, xdg-utils, xorg-xwayland
   pacman:
