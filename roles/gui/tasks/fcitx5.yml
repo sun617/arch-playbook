@@ -1,21 +1,15 @@
 ---
 
-- name: Install fcitx5
-  flatpak:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - org.fcitx.Fcitx5
-    - org.fcitx.Fcitx5.Addon.ChineseAddons
-    - org.fcitx.Fcitx5.Addon.Mozc
-  become: yes
-
-- name: Install fcitx5-configtool, fcitx5-gtk, fcitx5-qt
+- name: Install fcitx5, fcitx5-configtool, fcitx5-gtk, fcitx5-qt, fcitx5-chinese-addons, fcitx5-hangul, fcitx5-mozc
   pacman:
     name:
+      - fcitx5
       - fcitx5-configtool
       - fcitx5-gtk
       - fcitx5-qt
+      - fcitx5-chinese-addons
+      - fcitx5-hangul
+      - fcitx5-mozc
     state: present
   become: yes
 
