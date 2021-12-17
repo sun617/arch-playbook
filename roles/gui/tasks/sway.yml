@@ -2,6 +2,8 @@
 
 - import_tasks: alacritty.yml
   tags: alacritty
+- import_tasks: foot.yml
+  tags: foot
 - import_tasks: i3status-rust.yml
   tags: i3status-rust
 - import_tasks: gnupg.yml
