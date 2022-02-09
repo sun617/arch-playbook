@@ -38,6 +38,18 @@ require('packer').startup(function(use)
     }
   }
 
+  -- nvim-dap
+  use {
+    'rcarriga/nvim-dap-ui',
+    config = [[require('config.nvim-dap-ui')]],
+    requires = {
+      {
+        'mfussenegger/nvim-dap',
+        config = [[require('config.nvim-dap')]]
+      }
+    }
+  }
+
   -- fzf-lua
   use {
     'ibhagwan/fzf-lua',

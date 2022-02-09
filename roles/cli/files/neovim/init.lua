@@ -15,7 +15,6 @@ vim.opt.splitright = true
 -- options
 vim.opt.modeline = false
 vim.opt.number = true
-vim.opt.pastetoggle = '<F10>'
 vim.opt.signcolumn = 'number'
 vim.opt.swapfile = false
 vim.opt.termguicolors = true
@@ -35,11 +34,11 @@ vim.api.nvim_set_keymap("n", "<Leader>q", "<Cmd>qall<CR>",                      
 -- QuickFix
 vim.api.nvim_set_keymap("n", "[q",        "<Cmd>cprevious<CR>",                               { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "]q",        "<Cmd>cnext<CR>",                                   { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "\\q",        "<Cmd>cclose<CR>",                                 { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "\\q",       "<Cmd>cclose<CR>",                                  { noremap = true, silent = true })
 -- LocationList
 vim.api.nvim_set_keymap("n", "[l",        "<Cmd>lprevious<CR>",                               { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "]l",        "<Cmd>lnext<CR>",                                   { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "\\l",        "<Cmd>lclose<CR>",                                 { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "\\l",       "<Cmd>lclose<CR>",                                  { noremap = true, silent = true })
 
 -- plugins
 -- bootstraping
