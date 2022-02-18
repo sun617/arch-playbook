@@ -5,7 +5,6 @@ vim.opt.smartindent = true
 vim.opt.shiftwidth = 2
 vim.g.softtabstop = vim.g.shiftwidth
 vim.opt.expandtab = true
-vim.opt.pastetoggle = '<F10>'
 -- search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
