@@ -7,7 +7,7 @@ local servers = {
   'solargraph',
   'sumneko_lua',
   'tsserver',
-  -- 'volar',
+  'volar',
   'vuels',
 }
 
@@ -24,7 +24,30 @@ end
 
 local common_on_attach = require('config.nvim-lspconfig')
 local capabilities = require('config.nvim-cmp')
+local function get_local_settings()
+  local local_vimrc = vim.fn.getcwd()..'/.nvimrc.lua'
+  if vim.loop.fs_stat(local_vimrc) then
+    return dofile(local_vimrc)
+  else
+    return {}
+  end
+end
+local exclude_lsp_servers = get_local_settings().exclude_lsp_servers or {}
+local function has_value (tab, val)
+  for _, value in ipairs(tab) do
+    if value == val then
+      return true
+    end
+  end
+
+  return false
+end
 lsp_installer.on_server_ready(function (server)
+  -- skip setup for exclude lsp servers
+  if has_value(exclude_lsp_servers, server.name) then
+    return
+  end
+
   local opts = {
     on_attach = common_on_attach,
     capabilities = capabilities
@@ -64,5 +87,4 @@ lsp_installer.on_server_ready(function (server)
   end
 
   server:setup(opts)
-  vim.cmd [[ do User LspAttachBuffers ]]
 end)
