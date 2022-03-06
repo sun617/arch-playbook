@@ -19,5 +19,5 @@ if test (tty) = '/dev/tty1'
   # flatpak
   set -x XDG_DATA_DIRS "$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share"
 
-  exec sway
+  exec sway > /var/log/sway.log 2>&1
 end
