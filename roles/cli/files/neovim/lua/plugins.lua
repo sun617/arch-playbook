@@ -79,12 +79,12 @@ require('packer').startup(function(use)
   }
 
   -- surround
-  use {
-    'blackCauldron7/surround.nvim',
-    config = function()
-      require 'surround'.setup {}
-    end
-  }
+use {
+  "ur4ltz/surround.nvim",
+  config = function()
+    require"surround".setup {mappings_style = "sandwich"}
+  end
+}
 
   -- hop
   use {
