@@ -2,11 +2,11 @@
 -- https://github.com/golang/vscode-go/blob/master/docs/debugging.md#connecting-to-headless-delve-with-target-specified-at-server-start-up
 require('dap.ext.vscode').load_launchjs()
 -- mapping
-vim.api.nvim_set_keymap("n", "<F8>",     	"<Cmd>lua require('dap').continue()<CR>",               { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<F10>",    	"<Cmd>lua require('dap').step_over()<CR>",              { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<F11>",    	"<Cmd>lua require('dap').step_into()<CR>",              { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<F9>",    	"<Cmd>lua require('dap').step_out()<CR>",               { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>b", 	"<Cmd>lua require('dap').toggle_breakpoint()<CR>",      { noremap = true, silent = true })
+vim.keymap.set('n', '<F8>',     	function() return require('dap').continue() end,               { silent = true })
+vim.keymap.set('n', '<F10>',    	function() return require('dap').step_over() end,              { silent = true })
+vim.keymap.set('n', '<F11>',    	function() return require('dap').step_into() end,              { silent = true })
+vim.keymap.set('n', '<F9>',    	        function() return require('dap').step_out() end,               { silent = true })
+vim.keymap.set('n', '<Leader>b', 	function() return require('dap').toggle_breakpoint() end,      { silent = true })
 
 local dap = require('dap')
 -- go

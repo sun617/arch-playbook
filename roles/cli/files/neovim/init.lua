@@ -24,21 +24,21 @@ vim.opt.laststatus = 3
 vim.g.mapleader = " "
 
 -- Common
-vim.api.nvim_set_keymap("n", "j",         "gj",                                               { noremap = true })
-vim.api.nvim_set_keymap("n", "k",         "gk",                                               { noremap = true })
-vim.api.nvim_set_keymap("n", "<Leader>w", "<Cmd>update<CR>",                                  { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>W", "<Cmd>write !sudo tee > /dev/null %<CR>",           { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>d", "<Cmd>bdelete<CR>",                                 { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>D", "<Cmd>call delete(expand('%')) <Bar> :bdelete<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>q", "<Cmd>qall<CR>",                                    { noremap = true, silent = true })
+vim.keymap.set('n', 'j',         'gj')
+vim.keymap.set('n', 'k',         'gk')
+vim.keymap.set('n', '<Leader>w', '<Cmd>update<CR>',                                  { silent = true })
+vim.keymap.set('n', '<Leader>W', '<Cmd>write !sudo tee > /dev/null %<CR>',           { silent = true })
+vim.keymap.set('n', '<Leader>d', '<Cmd>bdelete<CR>',                                 { silent = true })
+vim.keymap.set('n', '<Leader>D', '<Cmd>call delete(expand("%")) <Bar> :bdelete<CR>', { silent = true })
+vim.keymap.set('n', '<Leader>q', '<Cmd>qall<CR>',                                    { silent = true })
 -- QuickFix
-vim.api.nvim_set_keymap("n", "[q",        "<Cmd>cprevious<CR>",                               { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "]q",        "<Cmd>cnext<CR>",                                   { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "\\q",       "<Cmd>cclose<CR>",                                  { noremap = true, silent = true })
+vim.keymap.set('n', '[q',        '<Cmd>cprevious<CR>',                               { silent = true })
+vim.keymap.set('n', ']q',        '<Cmd>cnext<CR>',                                   { silent = true })
+vim.keymap.set('n', '\\q',       '<Cmd>cclose<CR>',                                  { silent = true })
 -- LocationList
-vim.api.nvim_set_keymap("n", "[l",        "<Cmd>lprevious<CR>",                               { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "]l",        "<Cmd>lnext<CR>",                                   { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "\\l",       "<Cmd>lclose<CR>",                                  { noremap = true, silent = true })
+vim.keymap.set('n', '[l',        '<Cmd>lprevious<CR>',                               { silent = true })
+vim.keymap.set('n', ']l',        '<Cmd>lnext<CR>',                                   { silent = true })
+vim.keymap.set('n', '\\l',       '<Cmd>lclose<CR>',                                  { silent = true })
 
 -- plugins
 -- bootstraping

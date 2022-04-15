@@ -1,13 +1,17 @@
 require('Navigator').setup({
-  auto_save = 'nil',
+  -- When you want to save the modified buffers when moving to tmux
+  -- nil - Don't save (default)
+  -- 'current' - Only save the current modified buffer
+  -- 'all' - Save all the buffers
+  auto_save = nil,
+
+  -- Disable navigation when tmux is zoomed in
   disable_on_zoom = true
 })
 
 -- Keybindings
-local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-map("n", "<A-h>", "<Cmd>lua require('Navigator').left()<CR>",     opts)
-map("n", "<A-k>", "<Cmd>lua require('Navigator').up()<CR>",       opts)
-map("n", "<A-l>", "<Cmd>lua require('Navigator').right()<CR>",    opts)
-map("n", "<A-j>", "<Cmd>lua require('Navigator').down()<CR>",     opts)
-map("n", "<A-p>", "<Cmd>lua require('Navigator').previous()<CR>", opts)
+vim.keymap.set('n', "<A-h>", '<CMD>NavigatorLeft<CR>')
+vim.keymap.set('n', "<A-l>", '<CMD>NavigatorRight<CR>')
+vim.keymap.set('n', "<A-k>", '<CMD>NavigatorUp<CR>')
+vim.keymap.set('n', "<A-j>", '<CMD>NavigatorDown<CR>')
+vim.keymap.set('n', "<A-p>", '<CMD>NavigatorPrevious<CR>')

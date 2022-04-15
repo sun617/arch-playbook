@@ -1,6 +1,6 @@
 require("dapui").setup()
 
-vim.api.nvim_set_keymap("n", "<F12>", 		"<Cmd>lua require('dapui').toggle()<CR>", 					{ noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "dv", 		"<Cmd>lua require('dapui').eval()<CR>", 					{ noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "dx", 		"<Cmd>lua require('dapui').float_element('scopes', { enter = true } )<CR>", 	{ noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "dy", 		"<Cmd>lua require('dapui').float_element('watches', { enter = true } )<CR>", 	{ noremap = true, silent = true })
+vim.keymap.set('n', '<F12>', 		function() return require('dapui').toggle() end, 					{ silent = true })
+vim.keymap.set('n', 'dv', 		function() return require('dapui').eval() end, 					        { silent = true })
+vim.keymap.set('n', 'dx', 		function() return require('dapui').float_element('scopes', { enter = true } ) end, 	{ silent = true })
+vim.keymap.set('n', 'dy', 		function() return require('dapui').float_element('watches', { enter = true } ) end, 	{ silent = true })
