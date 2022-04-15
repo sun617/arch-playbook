@@ -17,13 +17,11 @@ require('packer').startup(function(use)
       --   requires = { 'nvim-lua/plenary.nvim' }
       -- },
       {
-        'ray-x/lsp_signature.nvim',
-      },
-      {
         'hrsh7th/nvim-cmp',
         config = [[require('config.nvim-cmp')]],
         requires = {
           'hrsh7th/cmp-nvim-lsp',
+          'hrsh7th/cmp-nvim-lsp-signature-help',
           'hrsh7th/cmp-buffer',
           {
             'L3MON4D3/LuaSnip',
