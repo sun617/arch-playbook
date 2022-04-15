@@ -18,6 +18,7 @@ vim.opt.signcolumn = 'number'
 vim.opt.swapfile = false
 vim.opt.termguicolors = true
 vim.opt.wrap = false
+vim.opt.laststatus = 3
 
 -- map
 vim.g.mapleader = " "
