@@ -69,7 +69,10 @@ require('packer').startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
-    config = [[require('config.treesitter')]]
+    config = [[require('config.treesitter')]],
+    requires = {
+      'nvim-treesitter/nvim-treesitter-textobjects'
+    }
   }
 
   -- nvim-autopairs
