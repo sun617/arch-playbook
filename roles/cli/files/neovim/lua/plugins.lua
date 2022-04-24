@@ -7,10 +7,6 @@ require('packer').startup(function(use)
     'neovim/nvim-lspconfig',
     config = [[require('config.nvim-lspconfig')]],
     requires = {
-      {
-        'williamboman/nvim-lsp-installer',
-        config = [[require('config.nvim-lsp-installer')]]
-      },
       -- {
       --   'jose-elias-alvarez/null-ls.nvim',
       --   config = [[require('config.null-ls')]],
@@ -82,12 +78,12 @@ require('packer').startup(function(use)
   }
 
   -- surround
-use {
-  "ur4ltz/surround.nvim",
-  config = function()
-    require"surround".setup {mappings_style = "sandwich"}
-  end
-}
+  use {
+    "ur4ltz/surround.nvim",
+    config = function()
+      require "surround".setup { mappings_style = "sandwich" }
+    end
+  }
 
   -- hop
   use {
@@ -150,7 +146,7 @@ use {
   use {
     'norcalli/nvim-colorizer.lua',
     config = function()
-      require'colorizer'.setup()
+      require 'colorizer'.setup()
     end
   }
 
