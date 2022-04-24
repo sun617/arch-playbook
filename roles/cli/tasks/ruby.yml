@@ -12,6 +12,7 @@
     state: latest
   with_items:
     - pre-commit
+    - solargraph
 
 - name: Config fish for ruby
   copy:

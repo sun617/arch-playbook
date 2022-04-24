@@ -2,7 +2,9 @@
 
 - name: Install rust
   pacman:
-    name: rustup
+    name:
+      - rustup
+      - rust-analyzer
     state: present
   become: yes
 

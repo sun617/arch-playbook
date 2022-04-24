@@ -2,7 +2,9 @@
 
 - name: Install go
   pacman:
-    name: go
+    name:
+      - go
+      - gopls
     state: present
   become: yes
 

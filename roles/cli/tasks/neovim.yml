@@ -2,7 +2,9 @@
 
 - name: Install neovim
   pacman:
-    name: neovim
+    name:
+      - neovim
+      - lua-language-server
     state: present
   become: yes
 

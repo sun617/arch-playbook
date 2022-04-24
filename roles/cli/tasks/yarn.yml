@@ -15,6 +15,10 @@
     state: latest
   with_items:
     - "@vue/cli"
+    - typescript-language-server
+    - vls
+    - vscode-langservers-extracted
+    - yaml-language-server
 
 - name: Config fish for yarn
   copy:
